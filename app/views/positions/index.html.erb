@@ -1,0 +1,16 @@
+<% title 'Listing positions' %>
+
+<% unless @positions.blank? %>
+  <%= table_for(@positions) %>
+  <%= will_paginate(@positions) %>
+<% else %>
+  <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
+  <br /><br />
+<% end %>
+
+<br />
+
+<p>
+  <%= link_to 'New Position', new_position_path, :class => 'button' %>
+</p>
+

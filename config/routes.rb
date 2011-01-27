@@ -1,4 +1,6 @@
 Cert::Application.routes.draw do
+  resources :positions
+
   devise_for :users,
       :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
 

@@ -22,6 +22,8 @@ module NavigationHelpers
       new_user_confirmation_path
     when /the edit account page/
       edit_user_registration_path
+    when /the edit position page for existing position/
+      edit_position_path(:id => Position.first.id)
     when /^the (.*) page with id: (\d+)$/i
       begin
         id, path_components = $2.to_i, $1.split(/\s+/)
