@@ -1,4 +1,6 @@
 Cert::Application.routes.draw do
+  resources :skills
+
   resources :positions
 
   devise_for :users,

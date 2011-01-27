@@ -10,6 +10,9 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new skill page/
+      new_skill_path
+
     when /the sign up page/
       new_user_registration_path
     when /the sign in page/
@@ -24,6 +27,9 @@ module NavigationHelpers
       edit_user_registration_path
     when /the edit position page for existing position/
       edit_position_path(:id => Position.first.id)
+    when /the edit skill page for existing skill/
+      edit_skill_path(:id => Skill.first.id)        
+
     when /^the (.*) page with id: (\d+)$/i
       begin
         id, path_components = $2.to_i, $1.split(/\s+/)

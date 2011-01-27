@@ -10,10 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110127072350) do
+ActiveRecord::Schema.define(:version => 20110127075034) do
 
   create_table "positions", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
