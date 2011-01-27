@@ -12,23 +12,23 @@
 
 ActiveRecord::Schema.define(:version => 20110127080148) do
 
-  create_table "position_skills", :force => true do |t|
-    t.integer  "position_id"
-    t.integer  "skill_id"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "positions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "skills", :force => true do |t|
+  create_table "skill_types", :force => true do |t|
     t.string   "name"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.integer  "position_id"
+    t.integer  "skill_type_id"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

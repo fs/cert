@@ -1,4 +1,4 @@
 class Skill < ActiveRecord::Base
-  validates :name, :presence => true, :uniqueness => true
-  has_many :position_skills
+  belongs_to :position
+  belongs_to :skill_type
 end

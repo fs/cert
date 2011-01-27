@@ -1,6 +1,6 @@
-class CreateSkills < ActiveRecord::Migration
+class CreateSkillTypes < ActiveRecord::Migration
   def self.up
-    create_table :skills do |t|
+    create_table :skill_types do |t|
       t.string :name
       t.text :comment
 
@@ -9,6 +9,6 @@ class CreateSkills < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :skills
+    drop_table :skill_types
   end
 end

@@ -7,7 +7,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.with_options(:if => Proc.new { user_signed_in? }) do |signed_in_user|
       signed_in_user.item :dashboard, 'Dashboard', root_path
       signed_in_user.item :positions, 'Positions', positions_path
-      signed_in_user.item :skills, 'Skills', skills_path
+      signed_in_user.item :skill_types, 'Skill types', skill_types_path
     end
   end
 end

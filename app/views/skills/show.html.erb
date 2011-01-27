@@ -1,15 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
-  <%= @skill.name %>
+  <b>Position:</b>
+  <%= @skill.position_id %>
 </p>
 
 <p>
-  <b>Comment:</b>
-  <%= @skill.comment %>
+  <b>Skill:</b>
+  <%= @skill.skill_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @skill.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_skill_path(@skill) %> |
-<%= link_to 'Back', skills_path %>
+<%= link_to 'Edit', edit_position_skill_path(@skill) %> |
+<%= link_to 'Back', position_skills_path %>

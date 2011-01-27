@@ -1,8 +1,8 @@
 <% title 'Listing skills' %>
 
-<% unless @skills.blank? %>
-  <%= table_for(@skills) %>
-  <%= will_paginate(@skills) %>
+<% unless @position_skills.blank? %>
+  <%= table_for(@position_skills) %>
+  <%= will_paginate(@position_skills) %>
 <% else %>
   <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
   <br /><br />
@@ -11,6 +11,6 @@
 <br />
 
 <p>
-  <%= link_to 'New Skill', new_skill_path, :class => 'button' %>
+  <%= link_to 'New Position skill', new_position_skill_path, :class => 'button' %>
 </p>
 

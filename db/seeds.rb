@@ -18,5 +18,5 @@ end
   'Инициативность',
   'Работа над проектом',
 ].each do |name|
-  Skill.create(:name => name)
+  SkillType.create(:name => name)
 end

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @skill_type.name %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @skill_type.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_skill_type_path(@skill_type) %> |
+<%= link_to 'Back', skill_types_path %>
