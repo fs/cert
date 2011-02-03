@@ -1,5 +1,6 @@
 class PositionsController < ApplicationController
   inherit_resources
+  actions :all, :except => [:show]
 
   protected
 

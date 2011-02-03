@@ -1,5 +1,6 @@
 class SkillTypesController < ApplicationController
   inherit_resources
+  actions :all, :except => [:show]
 
   protected
 
