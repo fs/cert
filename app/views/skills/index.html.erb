@@ -1,16 +1,32 @@
-<% title 'Listing skills' %>
-
-<% unless @position_skills.blank? %>
-  <%= table_for(@position_skills) %>
-  <%= will_paginate(@position_skills) %>
-<% else %>
-  <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
-  <br /><br />
-<% end %>
+<% title "Listing skills for #{@skill_type.name}" %>
 
 <br />
 
-<p>
-  <%= link_to 'New Position skill', new_position_skill_path, :class => 'button' %>
-</p>
+<% @positions.each do |position| %>
+  <h2><%= position.name %></h2>
 
+  <%= div_for(position) do %>
+
+  <table class="list">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% position.skills.each do |skill| %>
+      <tr class="odd" id="post_1">
+        <td>
+          <%= skill.description %>
+        </td>
+        <td class="actions edit_link"><%= link_to 'Edit', [@skill_type, skill] %></td>
+        <td class="actions destroy_link">
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+    <% end %>
+<% end %>

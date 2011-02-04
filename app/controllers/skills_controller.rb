@@ -1,9 +1,11 @@
 class SkillsController < ApplicationController
   inherit_resources
+  belongs_to :skill_type
+  actions :all, :except => [:show]
 
   protected
 
   def collection
-    @skills ||= end_of_association_chain.paginate(:page => params[:page])
+    @positions ||= Position.all
   end
 end
