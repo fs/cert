@@ -1,32 +1,37 @@
 <% title "Listing skills for #{@skill_type.name}" %>
 
-<br />
+<br/>
 
 <% @positions.each do |position| %>
   <h2><%= position.name %></h2>
 
   <%= div_for(position) do %>
 
-  <table class="list">
-    <thead>
+    <table class="list">
+      <thead>
       <tr>
         <th>Name</th>
         <th colspan="2"></th>
       </tr>
-    </thead>
-    <tbody>
-    <% position.skills.each do |skill| %>
-      <tr class="odd" id="post_1">
-        <td>
-          <%= skill.description %>
-        </td>
-        <td class="actions edit_link"><%= link_to 'Edit', [@skill_type, skill] %></td>
-        <td class="actions destroy_link">
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <% position.skills.each do |skill| %>
+        <tr class="odd" id="post_1">
+          <td>
+            <%= skill.description %>
+          </td>
+          <td class="actions edit_link"><%= link_to 'Edit', [@skill_type, skill] %></td>
+          <td class="actions destroy_link">
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
 
-    <% end %>
+    <%= render 'form',
+            :skill => Skill.new(:skill_type => @skill_type, :position => position),
+            :skill_type => @skill_type,
+            :position => position %>
+
+  <% end %>
 <% end %>

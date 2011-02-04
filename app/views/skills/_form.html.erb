@@ -1,9 +1,6 @@
-<%= semantic_form_for(resource) do |form| %>
+<%= semantic_form_for([skill_type, skill], :url => { :position_id => position }) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :position_id %>
-    <%= form.input :skill_id %>
-    <%= form.input :description %>
+    <%= form.input :description, :as => :string %>
   <% end %>
-
-  <%= form.buttons %> or <%= link_to 'cancel', resource %>
+  <%= form.buttons %>
 <% end %>

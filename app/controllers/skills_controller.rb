@@ -5,6 +5,11 @@ class SkillsController < ApplicationController
 
   protected
 
+   def create_resource(object)
+    object.position = Position.find(params[:position_id])
+    object.save
+  end
+
   def collection
     @positions ||= Position.all
   end
