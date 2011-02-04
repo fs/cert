@@ -17,6 +17,6 @@ class SkillsController < ApplicationController
   end
 
   def load_position
-    @position ||= Position.find(params[:position_id])
+    @position ||= Position.find(params[:skill][:position_id])
   end
 end
