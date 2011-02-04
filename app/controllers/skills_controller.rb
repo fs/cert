@@ -4,6 +4,7 @@ class SkillsController < ApplicationController
   actions :all, :except => [:show]
 
   before_filter :load_position, :only => [:create, :new]
+  before_filter :load_positions, :only => [:index]
 
   protected
 
@@ -12,7 +13,7 @@ class SkillsController < ApplicationController
     object.save
   end
 
-  def collection
+  def load_positions
     @positions ||= Position.all
   end
 

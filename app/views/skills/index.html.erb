@@ -15,7 +15,7 @@
 
   <%= div_for(position) do %>
 
-    <%= table_for(position.skills) do |t| %>
+    <%= table_for(position.skills.where(:skill_type_id => @skill_type.id)) do |t| %>
       <%= t.data :description, :actions => [:edit, :destroy], :action_prefix => @skill_type %>
     <% end %>
 
