@@ -1,7 +1,7 @@
-Feature: Manage skills required for position
-  In order to create new certification
+Feature: Listing skills
+  In order to get familiar with existing skills
   As a CTO or HR
-  I want to define required skills per position
+  I want to list skills per skill type
 
   Background:
     Given I am an authenticated user
