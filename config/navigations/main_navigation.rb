@@ -8,6 +8,7 @@ SimpleNavigation::Configuration.run do |navigation|
       signed_in_user.item :dashboard, 'Dashboard', root_path
       signed_in_user.item :positions, 'Positions', positions_path
       signed_in_user.item :skill_types, 'Skill types', skill_types_path
+      signed_in_user.item :users, 'Users', users_path
     end
   end
 end
