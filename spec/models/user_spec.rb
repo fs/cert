@@ -7,4 +7,6 @@ describe User do
   it { should allow_mass_assignment_of(:password_confirmation) }
 
   it { should validate_presence_of :full_name }
+
+  it { should have_and_belong_to_many :roles }
 end

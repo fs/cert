@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 
   include User::OmniAuthExtension
 
+  has_and_belongs_to_many :roles
+
   attr_accessible :full_name, :email, :password, :password_confirmation
   validates :full_name, :presence => true
 
