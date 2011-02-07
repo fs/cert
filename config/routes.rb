@@ -1,9 +1,11 @@
 Cert::Application.routes.draw do
   resources :positions
-  
+
   resources :skill_types do
     resources :skills
   end
+
+  resources :users
 
   devise_for :users,
       :controllers => {:omniauth_callbacks => 'omniauth_callbacks'}
