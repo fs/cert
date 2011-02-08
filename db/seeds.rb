@@ -14,6 +14,13 @@
   puts "User: #{name.underscore}@example.com/123456 with role: #{name} created"
 end
 
+User.find_or_create_by_email('user@example.com') do |u|
+  u.password = '123456'
+  u.full_name = 'Regular user'
+  u.confirmed_at = Time.now
+end
+puts "User: user@example.com/123456 created"
+
 [
   'Младший программист',
   'Программист',
