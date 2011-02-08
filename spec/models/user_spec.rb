@@ -9,4 +9,24 @@ describe User do
   it { should validate_presence_of :full_name }
 
   it { should have_and_belong_to_many :roles }
+
+  context 'roles' do
+    context 'for new user' do
+      subject { User.new }
+      it { should have_role :visitor }
+      it { should_not have_role :user }
+    end
+
+    context 'for any user' do
+      subject { Factory(:user) }
+      it { should_not have_role :visitor }
+      it { should have_role :user }
+    end
+
+    context 'for user with CTO role' do
+      subject { Factory(:user_cto) }
+      it { should have_role :cto }
+    end
+
+  end
 end
