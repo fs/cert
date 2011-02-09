@@ -1,1 +1,6 @@
-doc/README_FOR_APP
+Version: 0.1
+ * Positions
+ * Skill types
+ * Skills
+ * Roles
+ * Users
