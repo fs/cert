@@ -7,7 +7,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :user
-      can :read, [Position]
+      can :read, [Position, SkillType]
     end
 
     # cannot update, destroy self
