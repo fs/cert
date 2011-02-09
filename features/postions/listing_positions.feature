@@ -45,6 +45,5 @@ Feature: Listing positions
   Scenario: Visitor should not be able to list positions
     Given I am logged out
     When I go to the positions page
-    Then I should be on the sign in page
-    And I should see "You need to sign in or sign up before continuing"
+    Then access should be denied via authentication rule
 

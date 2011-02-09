@@ -29,3 +29,7 @@ Then /^I should be signed in$/ do
   page.should have_content(@current_user.full_name_with_email)
 end
 
+Then /^access should be denied via authentication rule$/ do
+  Then %Q{I should be on the sign in page}
+  Then %Q{I should see "You need to sign in or sign up before continuing"}
+end
