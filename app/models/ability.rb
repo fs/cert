@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     elsif user.has_role? :hr
       can :read, [Position, SkillType]
-      can :manage, [Skill]
+      can :manage, [Skill, User]
     elsif user.has_role? :user # should be the last in
       can :read, [Position, SkillType, Skill]
     end

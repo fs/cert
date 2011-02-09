@@ -2,7 +2,7 @@
   <%= form.inputs do %>
     <%= form.input :full_name %>
     <%= form.input :email %>
-    <%= form.input :roles, :as => :check_boxes %>
+    <%= form.input :roles, :as => :check_boxes if can?(:manage, Role)%>
   <% end %>
 
   <%= form.buttons %> or <%= link_to 'cancel', resource %>
