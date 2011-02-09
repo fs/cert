@@ -14,7 +14,6 @@ Feature: Listing users
     Then I should see "david@example.com"
     And I should see "mary@example.com"
 
-  @wip
   Scenario: Current user should not be able to edit self
     Then I should not see "Destroy" within "#user_1"
     And I should not see "Edit" within "#user_1"

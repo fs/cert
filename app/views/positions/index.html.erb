@@ -10,7 +10,9 @@
 
 <br />
 
-<p>
-  <%= link_to 'New Position', new_position_path, :class => 'button' %>
-</p>
+<% if can?(:create, Position) %>
+  <p>
+    <%= link_to 'New Position', new_position_path, :class => 'button' %>
+  </p>
+<% end %>
 
