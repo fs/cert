@@ -1,4 +1,7 @@
 class SkillsController < ApplicationController
+  before_filter :authenticate_user!
+  authorize_resource
+
   inherit_resources
   belongs_to :skill_type
   actions :all, :except => [:show]

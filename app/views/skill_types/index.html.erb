@@ -1,21 +1,16 @@
 <% title 'Listing skill types' %>
 
-<% unless @skill_types.blank? %>
-  <%= table_for(@skill_types) do |t| %>
-    <%= t.data :actions => [:edit, :destroy] do %>
-      <% t.cell(:name) {|skill_type| link_to(skill_type.name, [skill_type, :skills])} %>
-    <% end %>
+<%= table_for(@skill_types) do |t| %>
+  <%= t.data :actions => [:edit, :destroy] do %>
+    <% t.cell(:name) {|skill_type| link_to(skill_type.name, [skill_type, :skills])} %>
   <% end %>
-
-  <%= will_paginate(@skill_types) %>
-<% else %>
-  <p>Now it's time to create some data here. To create new entry, please use the button below.</p>
-  <br /><br />
 <% end %>
 
 <br />
 
-<p>
-  <%= link_to 'New skill type', new_skill_type_path, :class => 'button' %>
-</p>
+<% if can?(:create, SkillType) %>
+  <p>
+    <%= link_to 'New skill type', new_skill_type_path, :class => 'button' %>
+  </p>
+<% end %>
 
