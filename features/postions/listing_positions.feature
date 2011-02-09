@@ -1,6 +1,6 @@
 Feature: Listing positions
   In order to review existing positions
-  As a CTO or HR
+  As a authenticated user
   I want to browse positions
 
   Background:

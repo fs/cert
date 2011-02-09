@@ -1,6 +1,6 @@
 Feature: Listing skill types
   In order to review existing skill types
-  As a CTO or HR
+  As a authenticated user
   I want to browse skill types
 
   Background:

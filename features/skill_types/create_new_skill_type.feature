@@ -1,6 +1,6 @@
 Feature: Create new skill type
   In order to add skill type for positions
-  As a CTO or HR
+  As an administrator
   I want to create that new skill type
 
   Background:

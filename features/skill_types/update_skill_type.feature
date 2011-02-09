@@ -1,6 +1,6 @@
 Feature: Update skill type
   In order to have up to date skill types
-  As a CTO or HR
+  As an administrator
   I want to update skill type
 
   Background:

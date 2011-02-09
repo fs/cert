@@ -1,6 +1,6 @@
 Feature: Update position
   In order to have up to date positions
-  As a CTO or HR
+  As an administrator
   I want to update position
 
   Background:

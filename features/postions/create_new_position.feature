@@ -1,6 +1,6 @@
 Feature: Create new position
   In order to add new position in the company
-  As a CTO or HR
+  As an administrator
   I want to create that new position
 
   Background:
