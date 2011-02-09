@@ -17,3 +17,8 @@ end
 Factory.define :not_confirmed_user, :parent => :user do |u|
   u.confirmed_at nil
 end
+
+Factory.define :user_cto, :parent => :confirmed_user do |u|
+  u.roles {|a| [ a.association :role_cto ]}
+end
+

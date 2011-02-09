@@ -1,0 +1,5 @@
+<% title 'Listing users' %>
+
+<%= table_for(@users) do |t| %>
+  <%= t.data :full_name, :email, :actions => [:edit, :destroy] %>
+<% end %>

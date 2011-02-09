@@ -19,14 +19,16 @@
       <%= t.data :description, :actions => [:edit, :destroy], :action_prefix => @skill_type %>
     <% end %>
 
-    <%= div_for(position, :form, :style => 'display:none') do %>
-      <%= render 'form',
-              :resource => Skill.new(:skill_type => @skill_type, :position => position),
-              :skill_type => @skill_type,
-              :position => position %>
-    <% end %>
+    <% if can?(:create, Skill) %>
+      <%= div_for(position, :form, :style => 'display:none') do %>
+        <%= render 'form',
+                :resource => Skill.new(:skill_type => @skill_type, :position => position),
+                :skill_type => @skill_type,
+                :position => position %>
+      <% end %>
 
-    <%= link_to 'New skill', '#', :class => 'toggler', :container_id => dom_id(position, :form) %>
+      <%= link_to 'New skill', '#', :class => 'toggler', :container_id => dom_id(position, :form) %>
+    <% end %>
 
   <% end %>
 <% end %>
