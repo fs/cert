@@ -8,7 +8,11 @@ Cert::Application.routes.draw do
     get 'signup', :to => 'devise/registrations#new', :as => 'new_user_registration'
   end
 
-  resources :users
+  resources :users do
+    resources :certifications
+  end
+
+  resources :certifications
 
   resources :positions
 

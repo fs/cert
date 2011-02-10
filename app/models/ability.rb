@@ -8,9 +8,10 @@ class Ability
       can :manage, :all
     elsif user.has_role? :hr
       can :read, [Position, SkillType]
-      can :manage, [Skill, User]
+      can :manage, [Skill, User, Certification]
     elsif user.has_role? :user # should be the last in
       can :read, [Position, SkillType, Skill]
+      can :read, Certification, :user_id => user.id
     end
 
     # cannot update, destroy self

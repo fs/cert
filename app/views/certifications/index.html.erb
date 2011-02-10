@@ -1,0 +1,14 @@
+<% title 'Listing certifications' %>
+
+<%= table_for(@certifications) do |t| %>
+  <%= t.data :user, :position, :created_at, :actions => [:edit, :destroy] %>
+<% end %>
+
+<br/>
+
+<% if can?(:create, Certification) %>
+  <p>
+    <%= link_to 'New certification', new_certification_path, :class => 'button' %>
+  </p>
+<% end %>
+
