@@ -5,13 +5,13 @@ Feature: Edit skill
 
   Background:
     Given I am an authenticated user
-    And a position: "junior" exists with name: "Junior developer"
-    And a position: "senior" exists with name: "Senior developer"
+    And a position: "junior" exists with name: "Junior developer", id: 1
+    And a position: "senior" exists with name: "Senior developer", id: 2
     And a skill_type: "communication" exists with name: "Communication"
     And the following skills exist
-      | skill_type | position | description |
-      | skill_type "communication" | position "junior" | Should be able to talk |
-      | skill_type "communication" | position "senior" | Should be able to write |    
+      | id | skill_type | position | description |
+      | 1  | skill_type "communication" | position "junior" | Should be able to talk |
+      | 2  | skill_type "communication" | position "senior" | Should be able to write |    
 
   Scenario Outline: Admin or HR updates communication skill for Junior developer
     Given I have "<role>" role

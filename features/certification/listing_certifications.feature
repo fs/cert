@@ -9,8 +9,8 @@ Feature: Listing certifications
     And a position: "senior" exists with name: "Senior developer"
     And a confirmed user: "chris" exists with full_name: "Chris"
     And a confirmed user: "john" exists with full_name: "John"
-    And a certification exists with user: user "chris", position: position "junior"
-    And another certification exists with user: user "john", position: position "senior"
+    And a certification exists with user: user "chris", position: position "junior", id: 1
+    And another certification exists with user: user "john", position: position "senior", id: 2
 
   Scenario Outline: Admin or HR list certifications
     Given I have "<role>" role

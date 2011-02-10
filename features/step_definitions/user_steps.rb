@@ -1,5 +1,5 @@
 Given /^I exist in the application as registered user$/ do
-  @current_user = Factory.create(:confirmed_user)
+  @current_user = Factory.create(:confirmed_user, :id => 1)
 end
 
 Given /^I exist in the application as registered over Twitter user$/ do

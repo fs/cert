@@ -5,8 +5,8 @@ Feature: Listing skills
 
   Background:
     Given I am an authenticated user
-    And a position: "junior" exists with name: "Junior developer"
-    And a position: "senior" exists with name: "Senior developer"
+    And a position: "junior" exists with name: "Junior developer", id: 1
+    And a position: "senior" exists with name: "Senior developer", id: 2
     And a skill_type: "communication" exists with name: "Communication"
     And a skill_type: "initiative" exists with name: "Initiative"
     And the following skills exist

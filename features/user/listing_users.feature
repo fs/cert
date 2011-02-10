@@ -5,8 +5,8 @@ Feature: Listing users
 
   Background:
     Given I am an authenticated user
-    And a confirmed_user: "john" exists with full_name: "John"
-    And another confirmed_user: "chris" exists with full_name: "Chris"
+    And a confirmed_user: "john" exists with full_name: "John", id: 2
+    And another confirmed_user: "chris" exists with full_name: "Chris", id: 3
 
   Scenario Outline: Admin or HR list users
     Given I have "<role>" role
