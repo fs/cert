@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209153518) do
+ActiveRecord::Schema.define(:version => 20110210131806) do
 
   create_table "certifications", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(:version => 20110209153518) do
 
   add_index "certifications", ["position_id"], :name => "index_certifications_on_position_id"
   add_index "certifications", ["user_id"], :name => "index_certifications_on_user_id"
+
+  create_table "certifications_experts", :id => false, :force => true do |t|
+    t.integer "certification_id"
+    t.integer "user_id"
+  end
 
   create_table "positions", :force => true do |t|
     t.string   "name"

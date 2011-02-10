@@ -10,6 +10,7 @@ describe User do
 
   it { should have_and_belong_to_many :roles }
   it { should have_many :certifications }
+  it { should have_and_belong_to_many :expert_certifications }
 
   context 'roles' do
     context 'for new user' do

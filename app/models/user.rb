@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many :roles
   has_many :certifications
+  has_and_belongs_to_many :expert_certifications,
+      :class_name => 'Certification',
+      :join_table => 'certifications_experts'
 
   attr_accessible :full_name, :email, :password, :password_confirmation
   validates :full_name, :presence => true

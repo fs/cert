@@ -6,4 +6,6 @@ describe Certification do
 
   it { should belong_to :position }
   it { should belong_to :user }
+
+  it { should have_and_belong_to_many :experts }
 end
