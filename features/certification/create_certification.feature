@@ -6,15 +6,19 @@ Feature: Create new certification for user
   Background:
     Given I am an authenticated user
     And a position: "junior" exists with name: "Junior developer"
-    And a confirmed_user: "chris" exists with full_name: "Chris"
+    And a confirmed user: "chris" exists with full_name: "Chris"
 
   Scenario Outline: Admin or HR creates new certification for Chris on Junior developer position
     Given I have "<role>" role
+    And a confirmed user: "timur" exists with full_name: "Timur"
+    And user: "timur" has role: "Expert"
     When I am on the new certification page
     And I select "Junior developer" from "Position"
     And I select "Chris" from "User"
+    And I check "Timur"
     And I press "Create Certification"
     Then 1 certifications should exist with position: position "junior", user: user "chris"
+    And user "timur" should be in the certification's experts
 
       Examples:
         | role  |

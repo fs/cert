@@ -2,6 +2,7 @@
   <%= form.inputs do %>
     <%= form.input :position %>
     <%= form.input :user %>
+    <%= form.input :experts, :as => :check_boxes, :collection => User.experts %>
   <% end %>
 
   <%= form.buttons %> or <%= link_to 'cancel', resource %>
