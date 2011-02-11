@@ -6,12 +6,20 @@ class Ability
 
     if user.has_role? :admin
       can :manage, :all
-    elsif user.has_role? :hr
+    end
+
+    if user.has_role? :hr
       can :read, [Position, SkillType]
       can :manage, [Skill, User, Certification]
-    elsif user.has_role? :user # should be the last in
+    end
+
+    if user.has_role? :user
       can :read, [Position, SkillType, Skill]
       can :read, Certification, :user_id => user.id
+    end
+
+    if user.has_role? :expert
+      can :read, Certification, {:experts => {:id => user.id}}
     end
 
     # cannot update, destroy self
