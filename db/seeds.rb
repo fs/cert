@@ -1,6 +1,7 @@
 [
   'Admin',
   'HR',
+  'Expert',
 ].each do |name|
   role = Role.find_or_create_by_name(name)
   puts "Role: #{name} created"

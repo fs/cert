@@ -1,39 +1,14 @@
-# sqlite
-#
 defaults_developmet: &defaults_developmet
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql
+  encoding: utf8
+  host: localhost
+  username: root
+  password:
 
 development:
-  database: db/development.sqlite3
+  database: cert_dev
   <<: *defaults_developmet
 
 test:
-  database: db/test.sqlite3
+  database: cert_test<%= ENV['TEST_ENV_NUMBER'] %>
   <<: *defaults_developmet
-
-cucumber:
-  database: db/cucumber.sqlite3
-  <<: *defaults_developmet
-
-# mysql@locahost
-#
-#defaults_developmet: &defaults_developmet
-#  adapter: mysql
-#  encoding: utf8
-#  host: localhost
-#  username: root
-#  password:
-#
-#development:
-#  database: application_dev
-#  <<: *defaults_developmet
-#
-#test:
-#  database: application_test
-#  <<: *defaults_developmet
-#
-#cucumber:
-#  database: application_test
-#  <<: *defaults_developmet
