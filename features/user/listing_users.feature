@@ -60,7 +60,7 @@ Feature: Listing users
 
   Scenario: Regular users should not see link to users page
     When I am on the home page
-    Then I should not see "User"
+    Then I should not see "Users" menu item in the main navigation
 
   Scenario: Regular users should not be able to list users with direct request
     When I go to the users page
