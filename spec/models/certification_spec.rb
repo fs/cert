@@ -8,4 +8,6 @@ describe Certification do
   it { should belong_to :user }
 
   it { should have_and_belong_to_many :experts }
+
+  it { should have_many :marks }
 end

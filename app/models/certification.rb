@@ -7,4 +7,6 @@ class Certification < ActiveRecord::Base
   has_and_belongs_to_many :experts,
       :class_name => 'User',
       :join_table => 'certifications_experts'
+
+  has_many :marks, :class_name => 'CertificationMark'
 end
