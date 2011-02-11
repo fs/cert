@@ -52,13 +52,16 @@ Feature: Listing certifications
 
   Scenario: Regular user should not see links for managing certifications
     Given I have "User" role
+    And a certification exists with user: user "current_user", position: position "junior"
     When I go to the certifications page
     Then I should not see "Edit"
     And I should not see "Destroy"
 
   Scenario: Regular user should see only his certifications
     Given I have "User" role
-    #And a certification exists with user: user "current_user", position: position "junior"
+    And a certification exists with user: user "current_user", position: position "junior"
     When I go to the certifications page
-    Then I should not see "Junior developer"
+    Then I should see "Current User"
+    And should see "Junior developer"
+    And I should not see "John"
     And I should not see "Chris"
