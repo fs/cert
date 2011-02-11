@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110211145921) do
   create_table "certification_marks", :force => true do |t|
     t.integer  "certification_id"
     t.integer  "user_id"
+    t.integer  "skill_id"
     t.integer  "mark"
     t.text     "comment"
     t.datetime "created_at"
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20110211145921) do
   end
 
   add_index "certification_marks", ["certification_id"], :name => "index_certification_marks_on_certification_id"
+  add_index "certification_marks", ["skill_id"], :name => "index_certification_marks_on_skill_id"
   add_index "certification_marks", ["user_id"], :name => "index_certification_marks_on_user_id"
 
   create_table "certifications", :force => true do |t|

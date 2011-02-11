@@ -3,6 +3,7 @@ class CreateCertificationMarks < ActiveRecord::Migration
     create_table :certification_marks do |t|
       t.integer :certification_id
       t.integer :user_id
+      t.integer :skill_id
       t.integer :mark
       t.text :comment
 
@@ -11,6 +12,7 @@ class CreateCertificationMarks < ActiveRecord::Migration
 
     add_index :certification_marks, :user_id
     add_index :certification_marks, :certification_id
+    add_index :certification_marks, :skill_id
   end
 
   def self.down
