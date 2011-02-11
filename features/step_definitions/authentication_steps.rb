@@ -1,5 +1,5 @@
 Given /^I am an authenticated user$/ do
-  Given %Q{a confirmed user: "current_user" exists with id: "1", email: "current_user@example.com", password: 123456, full_name: "John Smith"}
+  Given %Q{a confirmed user: "current_user" exists with id: "1", email: "current_user@example.com", password: 123456, full_name: "Current User"}
 
   When %Q{I go to the sign in page}
   When %Q{fill in "Email" with "current_user@example.com"}
