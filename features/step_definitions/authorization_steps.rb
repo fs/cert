@@ -3,7 +3,7 @@ Given /^user: "([^"]*)" has role: "([^"]*)"$/ do |user, role|
 end
 
 Given /^I have "([^"]*)" role$/ do |role|
-  model!(%Q{user: "current_user"}).roles << Role.find_or_create_by_name(role)
+  model!('I').roles << Role.find_or_create_by_name(role)
 end
 
 Then /^access should be denied via authorization rule$/ do

@@ -4,9 +4,9 @@ Feature: Sign in
   I want to sign in
 
   Scenario: User signs in
-    Given a confirmed user exists with email: "current_user@example.com", password: "123456"
+    Given a confirmed user exists with email: "me@example.com", password: "123456"
     When I go to the sign in page
-    And fill in "Email" with "current_user@example.com"
+    And fill in "Email" with "me@example.com"
     And fill in "Password" with "123456"
     And press "Sign in"
     Then I should be signed in
@@ -21,17 +21,17 @@ Feature: Sign in
     Then I should see "Invalid email or password."
 
   Scenario: User has not confirmed email address
-    Given a not confirmed user exists with email: "current_user@example.com", password: "123456"
+    Given a not confirmed user exists with email: "me@example.com", password: "123456"
     When I go to the sign in page
-    And fill in "Email" with "current_user@example.com"
+    And fill in "Email" with "me@example.com"
     And fill in "Password" with "123456"
     And press "Sign in"
     Then I should see "You have to confirm your account before continuing."
 
   Scenario: User forgets his password
-    Given a confirmed user exists with email: "current_user@example.com", password: "123456", full_name: "John Smith"
+    Given a confirmed user exists with email: "me@example.com", password: "123456", full_name: "John Smith"
     And I go to the send password instructions page
-    When I fill in "Email" with "current_user@example.com"
+    When I fill in "Email" with "me@example.com"
     And I press "Send me reset password instructions"
     Then I should see "You will receive an email with instructions about how to reset your password in a few minutes."
     When I open the email

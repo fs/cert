@@ -1,8 +1,8 @@
 Given /^I am an authenticated user$/ do
-  Given %Q{a confirmed user: "current_user" exists with id: "1", email: "current_user@example.com", password: 123456, full_name: "Current User"}
+  Given %Q{a confirmed user: "me" exists with id: "1", email: "me@example.com", password: 123456, full_name: "Current User"}
 
   When %Q{I go to the sign in page}
-  When %Q{fill in "Email" with "current_user@example.com"}
+  When %Q{fill in "Email" with "me@example.com"}
   When %Q{fill in "Password" with "123456"}
   When %Q{press "Sign in"}
 end

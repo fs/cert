@@ -4,7 +4,7 @@ Feature: Update account information without current password
   I want to be able to update my account information
 
   Background:
-    Given a user registered over twitter exists with email: "current_user@example.com"
+    Given a user registered over twitter exists with email: "me@example.com"
     And I am logged in with Twitter account
     And I am on the edit account page
 

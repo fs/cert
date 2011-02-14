@@ -31,9 +31,9 @@ Feature: Listing certification marks
     And a confirmed user: "chris" exists with full_name: "Chris"
     And a certification: "chris at junior" exists with user: user "chris", position: position "junior"
     And the following certification marks exist
-      | certification                    | skill              | user                 | mark | comment           |
-      | certification: "chris at junior" | skill: "talk"      | user: "current_user" | 0    | Can't talk at all |
-      | certification: "chris at junior" | skill: "proactive" | user: "current_user" | 1    |                   |
+      | certification                    | skill              | user | mark | comment           |
+      | certification: "chris at junior" | skill: "talk"      | I    | 0    | Can't talk at all |
+      | certification: "chris at junior" | skill: "proactive" | I    | 1    |                   |
     And I expert for the certification "chris at junior"
     When I am on the user: "chris"'s certification: "chris at junior"'s certification marks page
     Then I should see "Communication" within "#skill_type_1"
@@ -45,8 +45,8 @@ Feature: Listing certification marks
     And the "normal" checkbox within "#skill_type_2 #skill_2" should be checked
 
   Scenario: User should see his own certification marks
-    Given a certification: "me at junior" exists with user: user "current_user", position: position "junior"
-    When I go to the user: "current_user"'s certification: "me at junior"'s certification marks page
+    Given a certification: "me at junior" exists with user: I, position: position "junior"
+    When I go to the user: "me"'s certification: "me at junior"'s certification marks page
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
     And should see "Initiative" within "#skill_type_2"

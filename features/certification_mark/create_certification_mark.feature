@@ -26,7 +26,7 @@ Feature: Create certification mark
     When I select "Should be able to talk" from "Skill"
     And choose "normal"
     And press "Create Certification mark"
-    Then 1 certification marks should exist with certification: certification "chris at junior", user: user "current_user", skill: skill "talk", mark: 1
+    Then 1 certification marks should exist with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1
 
   Scenario Outline: Create un normal mark for certification with comment
     Given I am on the user: "chris"'s certification's new certification_mark page
@@ -34,7 +34,7 @@ Feature: Create certification mark
     And choose "<mark_label>"
     And I fill in "Comment" with "Some extra skill"
     And press "Create Certification mark"
-    Then 1 certification marks should exist with certification: certification "chris at junior", user: user "current_user", skill: skill "talk", mark: <mark_value>
+    Then 1 certification marks should exist with certification: certification "chris at junior", user: I, skill: skill "talk", mark: <mark_value>
 
       Examples:
         | mark_label  | mark_value |
@@ -55,10 +55,10 @@ Feature: Create certification mark
         | higher |
 
   Scenario: Try to create new mark if other one exist for given certification and skill
-    Given a certification mark exists with certification: certification "chris at junior", user: user "current_user", skill: skill "talk", mark: 1
+    Given a certification mark exists with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1
     And I am on the user: "chris"'s certification's new certification_mark page
     When I select "Should be able to talk" from "Skill"
     And choose "normal"
     And I fill in "Comment" with "Updated comment"
     And press "Create Certification mark"
-    Then 1 certification marks should exist with certification: certification "chris at junior", user: user "current_user", skill: skill "talk", mark: 1
+    Then 1 certification marks should exist with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1

@@ -10,4 +10,4 @@ Feature: Cancel account
   Scenario: Cancel user account
     When I follow "Cancel my account"
     Then I should be on the sign in page
-    And user: "current_user" should not exist 
+    And I should not exist
