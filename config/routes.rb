@@ -8,16 +8,19 @@ Cert::Application.routes.draw do
     get 'signup', :to => 'devise/registrations#new', :as => 'new_user_registration'
   end
 
-  resources :users do
-    resources :certifications
+  resources :users, :except => [:show] do
+    resources :certifications, :except => [:show]
   end
 
-  resources :certifications
+  
+  resources :certifications, :except => [:show] do
+    resources :certification_marks, :except => [:show]
+  end
 
-  resources :positions
+  resources :positions, :except => [:show]
 
-  resources :skill_types do
-    resources :skills
+  resources :skill_types, :except => [:show] do
+    resources :skills, :except => [:show]
   end
 
   root :to => 'dashboard#index'
