@@ -1,0 +1,33 @@
+<% title %Q{Listing certification marks for #{@certification}} %>
+
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.formtastic.certification_mark input, .formtastic.certification_mark textarea').live('change', function() {
+        $(this).closest('form').submit();
+      });
+    });
+  </script>
+<% end %>
+
+<ul>
+  <% SkillType.by_certification(@certification).each do |skill_type| %>
+    <%= content_tag_for(:li, skill_type) do %>
+      <%= skill_type.name %>
+      <ul>
+        <% skill_type.skills.by_position(@certification.position).each do |skill| %>
+
+          <%= content_tag_for(:li, skill) do %>
+            <%= skill.description %>
+
+            <%= div_for(skill, :form) do %>
+              <%= render 'form', :resource => @certification.certification_marks.find_or_initialize_by_user_id_and_skill_id(current_user.id, skill.id) %>
+            <% end %>
+
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</ul>
+

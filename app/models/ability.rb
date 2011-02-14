@@ -16,10 +16,12 @@ class Ability
     if user.has_role? :user
       can :read, [Position, SkillType, Skill]
       can :read, Certification, :user_id => user.id
+      can :manage, CertificationMark, {:certification => {:user_id => user.id}}
     end
 
     if user.has_role? :expert
       can :read, Certification, {:experts => {:id => user.id}}
+      can :manage, CertificationMark, {:certification => {:experts => {:id => user.id}}}
     end
 
     # cannot update, destroy self
