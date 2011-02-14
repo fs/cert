@@ -5,5 +5,5 @@
     <%= form.input :roles, :as => :check_boxes if can?(:manage, Role)%>
   <% end %>
 
-  <%= form.buttons %> or <%= link_to 'cancel', resource %>
+  <%= form.buttons %> or <%= link_to 'cancel', resource_class %>
 <% end %>
