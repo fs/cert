@@ -8,5 +8,9 @@ class Certification < ActiveRecord::Base
       :class_name => 'User',
       :join_table => 'certifications_experts'
 
-  has_many :marks, :class_name => 'CertificationMark'
+  has_many :certification_marks
+
+  def to_s
+    "#{user.full_name}@#{position.name}"
+  end
 end

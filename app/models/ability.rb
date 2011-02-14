@@ -20,6 +20,7 @@ class Ability
 
     if user.has_role? :expert
       can :read, Certification, {:experts => {:id => user.id}}
+      can :manage, CertificationMark, {:certification => {:experts => {:id => user.id}}}
     end
 
     # cannot update, destroy self

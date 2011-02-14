@@ -1,14 +1,15 @@
 class CertificationMark < ActiveRecord::Base
   MARKS = {
-      :less => -1,
-      :normal => 0,
-      :higher => 1
+      :less => 0,
+      :normal => 1,
+      :higher => 2
   }
 
   belongs_to :certification
   belongs_to :user
+  belongs_to :skill
 
-  validates :certification, :user, :mark, :presence => true
+  validates :certification, :user, :skill, :mark, :presence => true
   validates :mark, :inclusion => MARKS.values
   validates :comment, :presence => { :if => :comment_required? }
 

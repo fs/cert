@@ -12,11 +12,16 @@ describe CertificationMark do
 
   context 'with mark lower then required' do
     subject { CertificationMark.new(:mark => CertificationMark::MARKS[:lower]) }
-    it {s should validate_presence_of :comment }
+    it { should validate_presence_of :comment }
   end
 
   context 'with mark higher than required' do
     subject { CertificationMark.new(:mark => CertificationMark::MARKS[:higher]) }
-    it {s should validate_presence_of :comment }
+    it { should validate_presence_of :comment }
+  end
+
+  context 'with normal mark' do
+    subject { CertificationMark.new(:mark => CertificationMark::MARKS[:normal]) }
+    it { should_not validate_presence_of :comment }
   end
 end

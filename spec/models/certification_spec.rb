@@ -9,5 +9,5 @@ describe Certification do
 
   it { should have_and_belong_to_many :experts }
 
-  it { should have_many :marks }
+  it { should have_many :certification_marks }
 end
