@@ -27,3 +27,29 @@ Feature: Create certification mark
     And choose "normal"
     And press "Create Certification mark"
     Then 1 certification marks should exist with certification: certification "chris at junior", user: user "current_user", skill: skill "talk", mark: 1
+
+  Scenario Outline: Create un normal mark for certification with comment
+    Given I am on the certification's new certification_mark page
+    When I select "Should be able to talk" from "Skill"
+    And choose "<mark_label>"
+    And I fill in "Comment" with "Some extra skill"
+    And press "Create Certification mark"
+    Then 1 certification marks should exist with certification: certification "chris at junior", user: user "current_user", skill: skill "talk", mark: <mark_value>
+
+      Examples:
+        | mark_label  | mark_value |
+        | less        | 0 |
+        | higher      | 2 |
+
+  Scenario Outline: Create un normal mark for certification without comment
+    Given I am on the certification's new certification_mark page
+    When I select "Should be able to talk" from "Skill"
+    And choose "<mark_label>"
+    And I fill in "Comment" with ""
+    And press "Create Certification mark"
+    Then I should see "can't be blank" error for "certification_mark_comment"
+
+      Examples:
+        | mark_label |
+        | less |
+        | higher |
