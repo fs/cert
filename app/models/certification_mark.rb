@@ -12,6 +12,7 @@ class CertificationMark < ActiveRecord::Base
   validates :certification, :user, :skill, :mark, :presence => true
   validates :mark, :inclusion => MARKS.values
   validates :comment, :presence => { :if => :comment_required? }
+  validates :mark, :uniqueness => {:scope => [:certification_id, :user_id, :skill_id]}
 
   private
 

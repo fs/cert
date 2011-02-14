@@ -1,6 +1,5 @@
-<%= semantic_form_for([parent, resource]) do |form| %>
+<%= semantic_form_for([@user, @certification, resource]) do |form| %>
   <%= form.inputs do %>
-    <%= form.input :certification %>
     <%= form.input :skill %>
     <%= form.input :mark, :as => :radio, :collection => CertificationMark::MARKS %>
     <%= form.input :comment %>

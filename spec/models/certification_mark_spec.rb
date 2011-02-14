@@ -10,6 +10,11 @@ describe CertificationMark do
   it { should validate_presence_of :mark }
   it { should validate_presence_of :skill }
 
+  it 'should have a unique #text' do
+    Factory(:certification_mark)
+    should validate_uniqueness_of(:mark).scoped_to([:certification_id, :user_id, :skill_id])
+  end
+
   context 'with mark lower then required' do
     subject { CertificationMark.new(:mark => CertificationMark::MARKS[:lower]) }
     it { should validate_presence_of :comment }
