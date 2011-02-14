@@ -8,6 +8,8 @@ class Certification < ActiveRecord::Base
       :class_name => 'User',
       :join_table => 'certifications_experts'
 
+  has_many :skill_types
+
   has_many :certification_marks
 
   def to_s
