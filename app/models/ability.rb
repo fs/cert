@@ -10,7 +10,7 @@ class Ability
 
     if user.has_role? :hr
       can :read, [Position, SkillType]
-      can :manage, [Skill, User, Certification]
+      can :manage, [Skill, User, Certification, CertificationMark]
     end
 
     if user.has_role? :user

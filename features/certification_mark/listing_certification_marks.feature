@@ -23,7 +23,7 @@ Feature: Listing certification marks
     And a certification: "chris at junior" exists with user: user "chris"
     And I expert for the certification "chris at junior"
     When I am on the certifications page
-    And follow "Chris"
+    And follow "Mark"
     Then I should be on the user: "chris"'s certification: "chris at junior"'s certification marks page
 
   Scenario: Expert should see certifications where he participate as expert

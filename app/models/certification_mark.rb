@@ -14,9 +14,13 @@ class CertificationMark < ActiveRecord::Base
   validates :comment, :presence => { :if => :comment_required? }
   validates :mark, :uniqueness => {:scope => [:certification_id, :user_id, :skill_id]}
 
+  def to_s
+    MARKS.invert[mark]
+  end
+
   private
 
   def comment_required?
-    mark != MARKS[:normal] 
+    mark != MARKS[:normal]
   end
 end
