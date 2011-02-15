@@ -1,6 +1,9 @@
-Version: 0.1
+Version: 0.2
  * Positions
  * Skill types
  * Skills
  * Roles
  * Users
+ * Certification
+ * Certification marks
+ * Certification reports

@@ -5,14 +5,14 @@ Feature: Listing users
 
   Background:
     Given I am an authenticated user
-    And a confirmed_user exists with email: "david@example.com"
-    And another confirmed_user exists with email: "mary@example.com"
+    And a confirmed_user: "john" exists with full_name: "John", id: 2
+    And another confirmed_user: "chris" exists with full_name: "Chris", id: 3
 
   Scenario Outline: Admin or HR list users
     Given I have "<role>" role
     When I go to the users page
-    Then I should see "david@example.com"
-    And I should see "mary@example.com"
+    Then I should see "John"
+    And I should see "Chris"
 
       Examples:
         | role |
@@ -41,6 +41,17 @@ Feature: Listing users
         | Admin |
         | HR |
 
+  Scenario Outline: Admin or HR should see links to user's certificates
+    Given I have "<role>" role
+    When I am on the users page
+    And I follow "John"
+    Then I should be on the user: "john"'s certifications page
+
+    Examples:
+      | role |
+      | Admin |
+      | HR |
+
   Scenario: Regular users should not be able to see manage links
     Given I have "User" role
     When I am on the users page
@@ -49,7 +60,7 @@ Feature: Listing users
 
   Scenario: Regular users should not see link to users page
     When I am on the home page
-    Then I should not see "User"
+    Then I should not see "Users" menu item in the main navigation
 
   Scenario: Regular users should not be able to list users with direct request
     When I go to the users page
