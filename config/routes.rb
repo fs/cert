@@ -11,6 +11,7 @@ Cert::Application.routes.draw do
   resources :users, :except => [:show] do
     resources :certifications, :except => [:show] do
       resources :certification_marks, :except => [:show]
+      resource :certification_reports, :only => [:show]
     end
   end
 
