@@ -44,6 +44,8 @@ Feature: Listing certifications
     When I go to the certifications page
     Then I should see "Edit"
     And I should see "Destroy"
+    And I should see "Mark"
+    And I should see "Report"
 
   Examples:
     | role |
@@ -73,13 +75,6 @@ Feature: Listing certifications
     And should see "Current User"
     And should see "Junior developer"
 
-  Scenario: Regular user should not see links for managing certifications
-    Given I have "User" role
-    And a certification exists with user: I, position: position "junior"
-    When I go to the certifications page
-    Then I should not see "Edit"
-    And I should not see "Destroy"
-
   Scenario: Regular user should see only his certifications
     Given I have "User" role
     And a certification exists with user: I, position: position "junior"
@@ -88,3 +83,18 @@ Feature: Listing certifications
     And should see "Junior developer"
     And I should not see "John"
     And I should not see "Chris"
+
+  Scenario: Regular user should not see links for managing certifications
+    Given I have "User" role
+    And a certification exists with user: I, position: position "junior"
+    When I go to the certifications page
+    Then I should not see "Edit"
+    And I should not see "Destroy"
+
+  Scenario: Regular user should see link to mark & report on his certification
+    Given I have "User" role
+    And a certification exists with user: I, position: position "junior"
+    When I go to the certifications page
+    Then I should see "Report"
+    And I should see "Mark"
+

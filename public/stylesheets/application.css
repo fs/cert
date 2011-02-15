@@ -75,3 +75,4 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 #session_new { width: 400px; }
 
 .formtastic.certification_mark #certification_mark_skill_input, .formtastic.certification_mark #certification_mark_submit { display: none }
+.mark_link a { background-image: url("/images/icon_mark.gif"); }

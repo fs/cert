@@ -2,9 +2,18 @@
 
 <%= table_for(@certifications) do |t| %>
   <%= t.data :actions => [:edit, :destroy] do %>
-    <% t.cell(:user) {|certification| link_to(certification.user.full_name, [certification.user, certification, :certification_marks])} %>
+    <% t.cell(:user) %>
     <% t.cell(:position) %>
     <% t.cell(:created_at) %>
+
+    <%= t.cell(:mark, :heading => '', :cell_html => {:class => 'actions mark_link'}) do |certification| %>
+      <% link_to('Mark',  [certification.user, certification, :certification_marks]) if can?(:manage, certification.certification_marks.build) %>
+    <% end %>
+
+    <%= t.cell(:report, :heading => '', :cell_html => {:class => 'actions show_link'}) do |certification| %>
+      <% link_to('Report', [certification.user, certification, :certification_reports]) if can?(:read, certification) %>
+    <% end %>
+
   <% end %>
 
 <% end %>
