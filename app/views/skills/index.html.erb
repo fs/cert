@@ -1,31 +1,21 @@
 <% title "Listing skills for #{@skill_type.name}" %>
 
-<%= content_for :head do %>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('a.toggler').click(function() {
-        $('#' + $(this).attr('container_id')).toggle();
-      });
-    });
-  </script>
-<% end %>
-
 <% @positions.each do |position| %>
-  <h2><%= position.name %></h2>
-
   <%= div_for(position) do %>
 
     <%= table_for(@skills[position.id] || []) do |t| %>
-      <%= t.data :description, :actions => [:edit, :destroy], :action_prefix => @skill_type %>
+      <%= t.data :actions => [:edit, :destroy], :action_prefix => @skill_type do %>
+        <% t.cell(:description, :heading => position.name) { |skill| skill } %>
+      <% end %>
+
       <% if can?(:create, Skill) %>
         <%= div_for(position, :form, :style => 'display:none') do %>
           <%= render 'form',
-                :resource => Skill.new(:skill_type => @skill_type, :position => position),
-                :skill_type => @skill_type,
-                :position => position %>
+                     :resource => Skill.new(:skill_type => @skill_type, :position => position),
+                     :skill_type => @skill_type,
+                     :position => position %>
         <% end %>
-    <% end %>
-
+      <% end %>
     <% end %>
 
   <% end %>
