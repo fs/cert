@@ -32,6 +32,8 @@ body { background-color: #dadada;}
   color: black
 }
 
+h1 { margin-bottom: 1em; }
+
 div.alert { border: 1px solid #ddd; -moz-border-radius: 8px; -webkit-border-radius: 8px; margin-bottom: 1em; padding: 0.8em; background: #FBE3E4; border-color: #FBC2C4; color: #D12F19;}
 div.error a { color: #D12F19; }
 table.list th { white-space:nowrap; background:#f1f1f1; padding: 0.5em; }
@@ -46,6 +48,12 @@ div.percent { text-align:center; font-size:10px; position:relative; z-index:9; w
 table.list td.actions { padding: 0; width:2em; text-align: center; }
 table.list td.actions a { width:20px; height:20px; text-indent:-9999em; overflow:hidden; display:block; float:left; background-position: 0 0; background-repeat:no-repeat; margin: auto; }
 table.list td.actions a:hover { filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); -moz-opacity: 0.5; -khtml-opacity: 0.5; opacity: 0.5; }
+table.list fieldset { border: 0; background: transparent; padding: 0; margin: 0; }
+table.list fieldset ol { list-style: none; margin: 0; }
+table.list fieldset #skill_submit { background-image: url("/images/icon_addn.gif"); width: 20px; height: 20px; display: block; overflow: hidden; border: 0; box-shadow: none; text-indent: -9999px; }
+table.list fieldset #skill_submit:hover, table.list fieldset #skill_submit:focus { opacity: 0.5; }
+table.list fieldset #skill_description_input label { float: left; line-height: 26px; }
+table.list fieldset #skill_description_input textarea { float: left; margin: 0; height: 14px; width: 829px; }
 .edit_link a { background-image: url("/images/icon_edit.gif"); }
 .destroy_link a { background-image: url("/images/icon_delete.gif"); }
 .show_link a { background-image: url("/images/icon_view.gif"); }
@@ -76,3 +84,16 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 
 .formtastic.certification_mark #certification_mark_skill_input, .formtastic.certification_mark #certification_mark_submit { display: none }
 .mark_link a { background-image: url("/images/icon_mark.gif"); }
+
+.skill_types, .skill_types ul { list-style: none; margin: 0; }
+.skill_types .skill { overflow: hidden; margin: 0 0 20px; }
+.skill_types .skill_desc { float: left; width: 370px; }
+.skill_types .form_skill { float: left; }
+.skill_types .form_skill .inputs { float: left; margin: 0; padding: 0; background: transparent; border: 0; }
+.skill_types .form_skill .inputs li { float: left; margin: 0 0 0 20px; }
+.skill_types .form_skill .inputs li.radio { float: right; width: auto; }
+.skill_types .form_skill .inputs li.radio fieldset { background: transparent; }
+.skill_types .form_skill .inputs li.radio li { margin: 0 4px; }
+.skill_types .form_skill .inputs li.radio input { display: block; margin: 0 auto 3px; top: 0; }
+.skill_types .form_skill .inputs li.text { width: auto; clear: none; float: left; }
+.skill_types .form_skill .inputs li #certification_mark_comment { width: 300px; height: 14px; }

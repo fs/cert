@@ -10,15 +10,16 @@
   </script>
 <% end %>
 
-<ul>
+
+<ul class="skill_types">
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
-      <%= skill_type.name %>
+      <h2><%= skill_type.name %></h2>
       <ul>
         <% skill_type.skills.by_position(@certification.position).each do |skill| %>
 
           <%= content_tag_for(:li, skill) do %>
-            <%= skill.description %>
+            <div class="skill_desc"><%= skill.description %></div>
 
             <%= div_for(skill, :form) do %>
               <%= render 'form', :resource => @certification.certification_marks.find_or_initialize_by_user_id_and_skill_id(current_user.id, skill.id) %>
@@ -26,7 +27,7 @@
 
           <% end %>
         <% end %>
-      </ul>
+      </ul> 
     <% end %>
   <% end %>
 </ul>

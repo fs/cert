@@ -1,7 +1,13 @@
 <%= semantic_form_for([skill_type, resource]) do |form| %>
+  <tr>
+  <td colspan="2">
   <%= form.inputs do %>
-    <%= form.input :description %>
+    <%= form.input :description, :label => false %>
     <%= form.input :position_id, :as => :hidden %>
   <% end %>
+  </td>
+  <td class="actions">
   <%= form.buttons %>
+  </td>
+  </tr>
 <% end %>
