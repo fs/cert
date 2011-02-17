@@ -92,7 +92,7 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .skill { overflow: hidden; border-bottom: 1px solid #ddd; padding: 0.8em 0.5em; }
 .skill_types .skill.odd { background: #FAFAFA; }
 .skill_types .skill:hover, .skill_types .skill:focus, .skill_types .skill:active { background: #FFFFED; }
-.skill_types .skill_desc { float: left; width: 348px; margin: 10px 0; }
+.skill_types .skill_desc { float: left; width: 348px; margin: 8px 0; }
 .skill_types .form_skill { float: left; }
 .skill_types .form_skill .inputs { float: left; margin: 0; padding: 0; background: transparent; border: 0; }
 .skill_types .form_skill .buttons { display: none; }
