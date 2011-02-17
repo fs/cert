@@ -31,10 +31,12 @@
 
           <% @certification.all_experts.each do |expert| %>
             <% if @certification_marks_by_skills[skill.id].present? && @certification_marks_by_skills[skill.id][expert.id].present? %>
-              <td>
-                <%= @certification_marks_by_skills[skill.id][expert.id] %>:
-                <%= @certification_marks_by_skills[skill.id][expert.id].comment %>
-              </td>
+              <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
+
+              <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
+                <%= mark %>:
+                <%= mark.comment %>
+              <% end %>
             <% else %>
               <td>
                 No mark
