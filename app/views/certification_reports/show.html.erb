@@ -38,7 +38,7 @@
               <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
 
               <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
-                <!-- <%= mark %>: -->
+                <em><%= mark %></em>
                 <span><%= mark.comment %></span>
               <% end %>
             <% else %>
