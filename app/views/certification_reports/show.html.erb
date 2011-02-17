@@ -5,12 +5,12 @@
   <thead>
   <tr>
     <td>
-      Skill
+
     </td>
 
     <% @certification.all_experts.each do |expert| %>
       <td class="aligncenter">
-        <%= expert.full_name.html_safe.gsub(' ', '&nbsp;') %>
+        <strong><%= expert.full_name.html_safe.gsub(' ', '&nbsp;') %></strong>
       </td>
     <% end %>
     

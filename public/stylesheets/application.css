@@ -92,10 +92,11 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .skill { overflow: hidden; border-bottom: 1px solid #ddd; padding: 0.8em 0.5em; }
 .skill_types .skill.odd { background: #FAFAFA; }
 .skill_types .skill:hover, .skill_types .skill:focus, .skill_types .skill:active { background: #FFFFED; }
-.skill_types .skill_desc { float: left; width: 361px; margin: 10px 0; }
+.skill_types .skill_desc { float: left; width: 348px; margin: 10px 0; }
 .skill_types .form_skill { float: left; }
 .skill_types .form_skill .inputs { float: left; margin: 0; padding: 0; background: transparent; border: 0; }
 .skill_types .form_skill .buttons { display: none; }
+.skill_types .form_skill .inputs ol { margin: 0; }
 .skill_types .form_skill .inputs li { float: left; margin: 0 0 0 20px; }
 .skill_types .form_skill .inputs li.radio { float: right; width: auto; }
 .skill_types .form_skill .inputs li.radio fieldset { background: transparent; }
@@ -113,7 +114,7 @@ table.report .aligncenter { text-align: center; }
 table.report thead td { padding: 0.5em; }
 table.report .odd td { background: #FAFAFA; }
 table.report th.title { background: #F1F1F1; padding: 0.5em; font-weight: bold; }
-table.report td.desc { border-right: 1px solid #ddd; padding: 0.5em; }
+table.report td.desc { border-right: 1px solid #ddd; padding: 0.5em 0.5em 0.5em 1.5em; }
 table.report td.certification_mark { border-right: 1px solid #ddd; width: 30px; padding: 0; text-overflow: ellipsis-word; }
 table.report td.certification_mark span { display: none; }
 table.report td.certification_mark.normal { background: #CCC; }
