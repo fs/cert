@@ -11,6 +11,10 @@ class SkillsController < ApplicationController
 
   protected
 
+  def collection
+    @skills ||= end_of_association_chain.index_and_group_by(&:position_id)
+  end
+
    def create_resource(object)
     object.position = @position
     object.save

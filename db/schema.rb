@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110211145921) do
+ActiveRecord::Schema.define(:version => 20110217114557) do
 
   create_table "certification_marks", :force => true do |t|
     t.integer  "certification_id"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(:version => 20110211145921) do
     t.integer "user_id"
   end
 
+  add_index "certifications_experts", ["certification_id", "user_id"], :name => "index_certifications_experts_on_certification_id_and_user_id"
+  add_index "certifications_experts", ["user_id", "certification_id"], :name => "index_certifications_experts_on_user_id_and_certification_id"
+
   create_table "positions", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -59,6 +62,9 @@ ActiveRecord::Schema.define(:version => 20110211145921) do
     t.integer "user_id"
   end
 
+  add_index "roles_users", ["role_id", "user_id"], :name => "index_roles_users_on_role_id_and_user_id"
+  add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id"
+
   create_table "skill_types", :force => true do |t|
     t.string   "name"
     t.text     "comment"
@@ -74,6 +80,9 @@ ActiveRecord::Schema.define(:version => 20110211145921) do
     t.datetime "updated_at"
   end
 
+  add_index "skills", ["position_id"], :name => "index_skills_on_position_id"
+  add_index "skills", ["skill_type_id"], :name => "index_skills_on_skill_type_id"
+
   create_table "user_identities", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -81,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20110211145921) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "user_identities", ["user_id"], :name => "index_user_identities_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
