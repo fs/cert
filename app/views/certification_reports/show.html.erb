@@ -1,30 +1,51 @@
 <% title %Q{Certification report for #{@certification}} %>
 
-<ul class="skills_report">
+
+<table>
+  <thead>
+  <tr>
+    <td>
+      Skill
+    </td>
+    <% @certification.all_experts.each do |expert| %>
+      <td>
+        <%= expert.full_name %>
+      </td>
+    <% end %>
+  </tr>
+  </thead>
+
   <% SkillType.by_certification(@certification).each do |skill_type| %>
-    <%= content_tag_for(:li, skill_type) do %>
-      <h2><%= skill_type.name %></h2>
-      <ul>
-        <% (@skills[skill_type.id]  || []).each do |skill| %>
-          <%= content_tag_for(:li, skill) do %>
-            <h3><%= skill.description %></h3>
 
-            <% if @certification_marks_by_skills[skill.id] %>
-              <ul>
-                <% @certification_marks_by_skills[skill.id].each do |mark| %>
-                  <%= content_tag_for(:li, mark) do %>
-                    <strong><%= mark.user.full_name %></strong>: <%= mark %> <%= mark.comment %>
-                  <% end %>
-                <% end %>
-              </ul>
+    <%= content_tag_for(:tbody, skill_type) do %>
+      <tr>
+        <th colspan="<%= @certification.experts.size + 1 %>">
+          <%= skill_type.name %>
+        </th>
+      </tr>
+      <% (@skills[skill_type.id] || []).each do |skill| %>
+        <%= content_tag_for(:tr, skill) do %>
+          <td>
+            <%= skill.description %>
+          </td>
+
+          <% @certification.all_experts.each do |expert| %>
+            <% if @certification_marks_by_skills[skill.id].present? && @certification_marks_by_skills[skill.id][expert.id].present? %>
+              <td>
+                <%= @certification_marks_by_skills[skill.id][expert.id] %>:
+                <%= @certification_marks_by_skills[skill.id][expert.id].comment %>
+              </td>
             <% else %>
-              No one has rated this skill
+              <td>
+                No mark
+              </td>
             <% end %>
-
           <% end %>
+
         <% end %>
-      </ul>
+      <% end %>
     <% end %>
   <% end %>
-</ul>
+</table>
+
 
