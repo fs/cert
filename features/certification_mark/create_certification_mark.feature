@@ -30,7 +30,7 @@ Feature: Create certification mark
   Scenario Outline: Create un normal mark for certification with comment
     Given I am on the user: "chris"'s certification's certification marks page
     When I choose "<mark_label>" within "#skill_1"
-    And I fill in "Comment" with "Some extra skill" within "#skill_1"
+    And I fill in "certification_mark_comment" with "Some extra skill" within "#skill_1"
     And press "Create Certification mark" within "#skill_1"
     Then 1 certification marks should exist with certification: certification "chris at junior", user: I, skill: skill "talk", mark: <mark_value>
 
@@ -43,6 +43,6 @@ Feature: Create certification mark
     Given a certification mark exists with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1
     And I am on the user: "chris"'s certification's certification marks page
     When choose "normal" within "#skill_1"
-    And I fill in "Comment" with "Updated comment" within "#skill_1"
+    And I fill in "certification_mark_comment" with "Updated comment" within "#skill_1"
     And press "certification_mark_submit" within "#skill_1"
     Then 1 certification marks should exist with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1
