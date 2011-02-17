@@ -17,7 +17,7 @@ Feature: Edit skill
     Given I have "<role>" role
     And I am on the skill_type's skills page
     When I follow "Edit" within "#position_1 #skill_1"
-    And I fill in "Description" with "Updated skill"
+    And I fill in "skill_description" with "Updated skill"
     And I press "Update Skill"
     Then 1 skills should exist with description: "Updated skill", position: position "junior", skill_type: skill_type "communication"
 
@@ -30,7 +30,7 @@ Feature: Edit skill
     Given I have "<role>" role
     And I am on the skill_type's skills page
     When I follow "Edit" within "#position_1 #skill_1"
-    And I fill in "Description" with ""
+    And I fill in "skill_description" with ""
     And I press "Update Skill"
     Then I should see "can't be blank" error for "skill_description"
     And 0 skills should exist with description: "Updated skill", position: position "junior", skill_type: skill_type "communication"

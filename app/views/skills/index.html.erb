@@ -9,7 +9,7 @@
       <% end %>
 
       <% if can?(:create, Skill) %>
-        <%= div_for(position, :form, :style => 'display:none') do %>
+        <%= div_for(position, :form) do %>
           <%= render 'form',
                      :resource => Skill.new(:skill_type => @skill_type, :position => position),
                      :skill_type => @skill_type,
