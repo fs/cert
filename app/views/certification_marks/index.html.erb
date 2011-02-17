@@ -10,7 +10,6 @@
   </script>
 <% end %>
 
-
 <ul class="skill_types">
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
@@ -18,26 +17,23 @@
 
       <ul class="skill_types_list">
         <% (@skills_by_skill_type[skill_type.id] || []).each do |skill| %>
-          <%= content_tag_for(:li, skill, :class => cycle('odd', 'even')) do %>
+          <%= content_tag_for(:li, skill, :class => cycle ('odd', 'even')) do %>
             <div class="skill_desc"><%= skill.description %></div>
 
             <%= div_for(skill, :form) do %>
-
               <%= semantic_form_for([@user, @certification, @certification_marks[skill.id]], :remote => true) do |form| %>
                 <%= form.inputs do %>
                   <%= form.input :skill_id, :as => :hidden %>
                   <%= form.input :mark, :as => :radio, :collection => CertificationMark::MARKS %>
                   <%= form.input :comment %>
                 <% end %>
-
                 <%= form.buttons %>
               <% end %>
-
             <% end %>
-
+            
           <% end %>
         <% end %>
-      </ul>
+      </ul> 
     <% end %>
   <% end %>
 </ul>

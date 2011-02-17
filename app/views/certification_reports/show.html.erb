@@ -1,17 +1,19 @@
 <% title %Q{Certification report for #{@certification}} %>
 
 
-<table>
+<table class="report">
   <thead>
   <tr>
     <td>
       Skill
     </td>
+
     <% @certification.all_experts.each do |expert| %>
-      <td>
+      <td class="aligncenter">
         <%= expert.full_name %>
       </td>
     <% end %>
+    
   </tr>
   </thead>
 
@@ -23,14 +25,16 @@
           <%= skill_type.name %>
         </th>
       </tr>
+
       <% (@skills[skill_type.id] || []).each do |skill| %>
-        <%= content_tag_for(:tr, skill) do %>
-          <td>
+        <%= content_tag_for(:tr, skill, :class => cycle ('odd', 'even')) do %>
+          <td class="desc">
             <%= skill.description %>
           </td>
 
           <% @certification.all_experts.each do |expert| %>
             <% if @certification_marks_by_skills[skill.id].present? && @certification_marks_by_skills[skill.id][expert.id].present? %>
+
               <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
 
               <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
@@ -38,16 +42,13 @@
                 <%= mark.comment %>
               <% end %>
             <% else %>
-              <td>
-                No mark
+              <td class="mark none">
+                <span>No mark</span>
               </td>
             <% end %>
           <% end %>
-
         <% end %>
       <% end %>
     <% end %>
   <% end %>
 </table>
-
-
