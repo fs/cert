@@ -27,7 +27,11 @@ Feature: Show certification report
 
 
   Scenario Outline: Admin or HR view certification report
-    Given the following certification marks exist
+    Given the following certifications_experts exist
+      | certification                    | user        |
+      | certification: "chris at junior" | I           |
+      | certification: "chris at junior" | user: "joe" |
+    And the following certification marks exist
       | certification                    | id | skill              | user        | mark | comment           |
       | certification: "chris at junior" | 1  | skill: "talk"      | I           | 0    | Can't talk at all |
       | certification: "chris at junior" | 2  | skill: "talk"      | user: "joe" | 0    | Just silent man   |
@@ -39,20 +43,17 @@ Feature: Show certification report
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
 
-    And should see "Current User" within "#skill_type_1 #skill_1 #certification_mark_1"
     And should see "less" within "#skill_type_1 #skill_1 #certification_mark_1"
     And should see "Can't talk at all" within "#skill_type_1 #skill_1 #certification_mark_1"
 
-    And should see "Joe" within "#skill_type_1 #skill_1 #certification_mark_2"
     And should see "less" within "#skill_type_1 #skill_1 #certification_mark_2"
     And should see "Just silent man" within "#skill_type_1 #skill_1 #certification_mark_2"
 
     And should see "Initiative" within "#skill_type_2"
     And should see "Should be proactive" within "#skill_type_2 #skill_2"
 
-    And should see "Current User" within "#skill_type_2 #skill_2 #certification_mark_3"
     And should see "normal" within "#skill_type_2 #skill_2 #certification_mark_3"
-    
+
       Examples:
         | role  |
         | Admin |
@@ -60,29 +61,32 @@ Feature: Show certification report
 
 
   Scenario: User view report for his certification
-    Given the following certification marks exist
+    Given the following certifications_experts exist
+      | certification                 | user        |
+      | certification: "me at junior" | user: "joe" |
+      | certification: "me at junior" | user: "chris" |
+
+    And the following certification marks exist
       | certification                 | id | skill              | user          | mark | comment           |
       | certification: "me at junior" | 1  | skill: "talk"      | user: "chris" | 0    | Can't talk at all |
       | certification: "me at junior" | 2  | skill: "talk"      | user: "joe"   | 0    | Just silent man   |
       | certification: "me at junior" | 3  | skill: "proactive" | I             | 1    |                   |
+    
     And I have "User" role
     When I am on the user: "me"'s certification: "me at junior"'s certification reports page
 
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
 
-    And should see "Chris" within "#skill_type_1 #skill_1 #certification_mark_1"
     And should see "less" within "#skill_type_1 #skill_1 #certification_mark_1"
     And should see "Can't talk at all" within "#skill_type_1 #skill_1 #certification_mark_1"
 
-    And should see "Joe" within "#skill_type_1 #skill_1 #certification_mark_2"
     And should see "less" within "#skill_type_1 #skill_1 #certification_mark_2"
     And should see "Just silent man" within "#skill_type_1 #skill_1 #certification_mark_2"
 
     And should see "Initiative" within "#skill_type_2"
     And should see "Should be proactive" within "#skill_type_2 #skill_2"
 
-    And should see "Current User" within "#skill_type_2 #skill_2 #certification_mark_3"
     And should see "normal" within "#skill_type_2 #skill_2 #certification_mark_3"
 
 

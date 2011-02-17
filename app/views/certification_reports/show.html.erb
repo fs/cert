@@ -18,7 +18,7 @@
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:tbody, skill_type) do %>
       <tr>
-        <th colspan="<%= @certification.experts.size + 1 %>">
+        <th colspan="<%= @certification.all_experts.size + 1 %>">
           <%= skill_type.name %>
         </th>
       </tr>
@@ -30,10 +30,14 @@
 
           <% @certification.all_experts.each do |expert| %>
             <% if @certification_marks_by_skills[skill.id].present? && @certification_marks_by_skills[skill.id][expert.id].present? %>
-              <td class="mark <%= @certification_marks_by_skills[skill.id][expert.id] %>">
-                <!-- <%= @certification_marks_by_skills[skill.id][expert.id] %>: -->
-                <span><%= @certification_marks_by_skills[skill.id][expert.id].comment %></span>
-              </td>
+
+              <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
+
+              <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
+                <%= mark %>:
+                <%= mark.comment %>
+              <% end %>
+
             <% else %>
               <td class="mark none">
                 <span>No mark</span>
@@ -46,5 +50,3 @@
     <% end %>
   <% end %>
 </table>
-
-
