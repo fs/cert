@@ -1,6 +1,6 @@
 <% title %Q{Certification report for #{@certification}} %>
 
-<ul>
+<ul class="skills_report">
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
       <h2><%= skill_type.name %></h2>

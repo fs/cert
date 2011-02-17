@@ -15,7 +15,11 @@
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
       <h2><%= skill_type.name %></h2>
-      <ul>
+      <ul class="skill_types_list">
+        <li class="skill title">
+          <div class="skill_desc">Skill description</div>
+          <div class="form_skill"><div class="inputs"><ol><li class="radio">Mark</li><li class="text">Comment</li></ol></div></div>
+        </li>
         <% skill_type.skills.by_position(@certification.position).each do |skill| %>
 
           <%= content_tag_for(:li, skill) do %>
