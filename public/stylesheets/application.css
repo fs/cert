@@ -110,6 +110,7 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 
 .skills_report li { list-style: none; }
 .skills_report .skill_type ul { margin: 0; }
-.skills_report .skill { overflow: hidden; }
+.skills_report .skill { overflow: hidden; border-bottom: 1px solid #ddd; }
 .skills_report .skill h3 { float: left; }
-.skills_report .skill ul { float: right; }
+.skills_report .skill ul { float: right; border-left: 1px solid #ddd; }
+.skills_report .skill ul li { float: left; width: 150px; padding: 5px 10px; border-right: 1px solid #ddd; }
