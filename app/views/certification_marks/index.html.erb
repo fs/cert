@@ -15,9 +15,20 @@
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
       <h2><%= skill_type.name %></h2>
-      <ul>
-        <% (@skills_by_skill_type[skill_type.id] || []).each do |skill| %>
 
+      <ul class="skill_types_list">
+        <li class="skill title">
+          <div class="skill_desc">Skill description</div>
+          <div class="form_skill">
+            <div class="inputs">
+              <ol>
+                <li class="radio">Mark</li>
+                <li class="text">Comment</li>
+              </ol>
+            </div>
+          </div>
+        </li>
+        <% (@skills_by_skill_type[skill_type.id] || []).each do |skill| %>
           <%= content_tag_for(:li, skill) do %>
             <div class="skill_desc"><%= skill.description %></div>
 
@@ -37,7 +48,7 @@
 
           <% end %>
         <% end %>
-      </ul> 
+      </ul>
     <% end %>
   <% end %>
 </ul>

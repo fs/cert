@@ -85,15 +85,30 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .formtastic.certification_mark #certification_mark_skill_input, .formtastic.certification_mark #certification_mark_submit { display: none }
 .mark_link a { background-image: url("/images/icon_mark.gif"); }
 
+.skill_type h2 { margin: 0 0 0.7em; }
 .skill_types, .skill_types ul { list-style: none; margin: 0; }
-.skill_types .skill { overflow: hidden; margin: 0 0 20px; }
-.skill_types .skill_desc { float: left; width: 370px; }
+.skill_types .skill_types_list { border-top: 1px solid #ddd; }
+.skill_types .skill { overflow: hidden; border-bottom: 1px solid #ddd; padding: 0.8em 0.5em; }
+.skill_types .skill:hover, .skill_types .skill:focus, .skill_types .skill:active { background: #FFFFED; }
+.skill_types .skill_desc { float: left; width: 361px; line-height: 34px; }
 .skill_types .form_skill { float: left; }
 .skill_types .form_skill .inputs { float: left; margin: 0; padding: 0; background: transparent; border: 0; }
+.skill_types .form_skill .buttons { display: none; }
 .skill_types .form_skill .inputs li { float: left; margin: 0 0 0 20px; }
 .skill_types .form_skill .inputs li.radio { float: right; width: auto; }
 .skill_types .form_skill .inputs li.radio fieldset { background: transparent; }
 .skill_types .form_skill .inputs li.radio li { margin: 0 4px; }
 .skill_types .form_skill .inputs li.radio input { display: block; margin: 0 auto 3px; top: 0; }
 .skill_types .form_skill .inputs li.text { width: auto; clear: none; float: left; }
-.skill_types .form_skill .inputs li #certification_mark_comment { width: 300px; height: 14px; }
+.skill_types .form_skill .inputs li #certification_mark_comment { width: 300px; height: 21px; margin: 0; line-height: 22px; }
+.skill_types .form_skill .inputs li#certification_mark_comment_input .inline-errors { text-align: center; margin: 0.5em 0 0; }
+.skill_types .title, .skill_types .title:hover, .skill_types .title:focus { background: #F1F1F1; border-bottom: 2px solid #ddd; font-weight: bold; padding: 0.5em; }
+.skill_types .title .skill_desc { line-height: 1.4; }
+.skill_types .title .form_skill .inputs li { list-style: none; }
+.skill_types .title .form_skill .inputs li.text { width: 316px; }
+
+.skills_report li { list-style: none; }
+.skills_report .skill_type ul { margin: 0; }
+.skills_report .skill { overflow: hidden; }
+.skills_report .skill h3 { float: left; }
+.skills_report .skill ul { float: right; }
