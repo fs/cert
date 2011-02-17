@@ -100,7 +100,7 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .form_skill .inputs li { float: left; margin: 0 0 0 20px; }
 .skill_types .form_skill .inputs li.radio { float: right; width: auto; }
 .skill_types .form_skill .inputs li.radio fieldset { background: transparent; }
-.skill_types .form_skill .inputs li.radio fieldset ol { overflow: hidden; margin: 0; }
+.skill_types .form_skill .inputs li.radio fieldset ol { margin: 0; }
 .skill_types .form_skill .inputs li.radio li { margin: 0 4px; }
 .skill_types .form_skill .inputs li.radio input { display: block; margin: 0 auto 3px; top: 0; }
 .skill_types .form_skill .inputs li.text { width: auto; clear: none; float: left; }
