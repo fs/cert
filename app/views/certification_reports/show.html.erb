@@ -19,7 +19,7 @@
 
     <%= content_tag_for(:tbody, skill_type) do %>
       <tr>
-        <th colspan="<%= @certification.experts.size + 1 %>">
+        <th colspan="<%= @certification.all_experts.size + 1 %>">
           <%= skill_type.name %>
         </th>
       </tr>
