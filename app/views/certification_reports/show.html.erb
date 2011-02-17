@@ -7,22 +7,26 @@
     <td>
       Skill
     </td>
+
     <% @certification.all_experts.each do |expert| %>
       <td class="aligncenter">
         <%= expert.full_name.html_safe.gsub(' ', '&nbsp;') %>
       </td>
     <% end %>
+    
   </tr>
   </thead>
 
   <% SkillType.by_certification(@certification).each do |skill_type| %>
+
     <%= content_tag_for(:tbody, skill_type) do %>
       <tr>
         <th colspan="<%= @certification.all_experts.size + 1 %>" class="title">
           <%= skill_type.name %>
         </th>
       </tr>
-      <% skill_type.skills.by_position(@certification.position).each do |skill| %>
+
+      <% (@skills[skill_type.id] || []).each do |skill| %>
         <%= content_tag_for(:tr, skill, :class => cycle ('odd', 'even')) do %>
           <td class="desc">
             <%= skill.description %>
@@ -37,14 +41,12 @@
                 <!-- <%= mark %>: -->
                 <span><%= mark.comment %></span>
               <% end %>
-
             <% else %>
               <td class="certification_mark none">
                 <span>No mark</span>
               </td>
             <% end %>
           <% end %>
-
         <% end %>
       <% end %>
     <% end %>

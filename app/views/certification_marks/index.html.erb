@@ -10,22 +10,27 @@
   </script>
 <% end %>
 
-
 <ul class="skill_types">
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
       <h2><%= skill_type.name %></h2>
+
       <ul class="skill_types_list">
-
-        <% skill_type.skills.by_position(@certification.position).each do |skill| %>
-
+        <% (@skills_by_skill_type[skill_type.id] || []).each do |skill| %>
           <%= content_tag_for(:li, skill, :class => cycle ('odd', 'even')) do %>
             <div class="skill_desc"><%= skill.description %></div>
 
             <%= div_for(skill, :form) do %>
-              <%= render 'form', :resource => @certification.certification_marks.find_or_initialize_by_user_id_and_skill_id(current_user.id, skill.id) %>
+              <%= semantic_form_for([@user, @certification, @certification_marks[skill.id]], :remote => true) do |form| %>
+                <%= form.inputs do %>
+                  <%= form.input :skill_id, :as => :hidden %>
+                  <%= form.input :mark, :as => :radio, :collection => CertificationMark::MARKS %>
+                  <%= form.input :comment %>
+                <% end %>
+                <%= form.buttons %>
+              <% end %>
             <% end %>
-
+            
           <% end %>
         <% end %>
       </ul> 
