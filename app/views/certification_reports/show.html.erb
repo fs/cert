@@ -5,7 +5,7 @@
     <%= content_tag_for(:li, skill_type) do %>
       <h2><%= skill_type.name %></h2>
       <ul>
-        <% skill_type.skills.by_position(@certification.position).each do |skill| %>
+        <% (@skills[skill_type.id]  || []).each do |skill| %>
           <%= content_tag_for(:li, skill) do %>
             <h3><%= skill.description %></h3>
 
