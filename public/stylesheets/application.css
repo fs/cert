@@ -99,6 +99,7 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .form_skill .inputs li { float: left; margin: 0 0 0 20px; }
 .skill_types .form_skill .inputs li.radio { float: right; width: auto; }
 .skill_types .form_skill .inputs li.radio fieldset { background: transparent; }
+.skill_types .form_skill .inputs li.radio fieldset ol { overflow: hidden; margin: 0; }
 .skill_types .form_skill .inputs li.radio li { margin: 0 4px; }
 .skill_types .form_skill .inputs li.radio input { display: block; margin: 0 auto 3px; top: 0; }
 .skill_types .form_skill .inputs li.text { width: auto; clear: none; float: left; }
@@ -108,9 +109,12 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .title .form_skill .inputs li { list-style: none; }
 .skill_types .title .form_skill .inputs li.text { width: 316px; }
 
-.skills_report li { list-style: none; }
-.skills_report .skill_type ul { margin: 0; }
-.skills_report .skill { overflow: hidden; border-bottom: 1px solid #ddd; }
-.skills_report .skill h3 { float: left; }
-.skills_report .skill ul { float: right; border-left: 1px solid #ddd; }
-.skills_report .skill ul li { float: left; width: 150px; padding: 5px 10px; border-right: 1px solid #ddd; }
+table.report .aligncenter { text-align: center; }
+table.report thead td { padding: 5px; }
+table.report .odd td { background: #FAFAFA; }
+table.report td.desc { border-right: 1px solid #ddd; padding: 5px; }
+table.report td.mark { border-right: 1px solid #ddd; overflow: hidden; width: 30px; padding: 0; text-overflow: ellipsis-word; }
+table.report td.mark span { display: none; }
+table.report td.mark.normal { background: #ccc; }
+table.report td.mark.less { background: #E77A7A; }
+table.report td.mark.higher { background: #93B680; }
