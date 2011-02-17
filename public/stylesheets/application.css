@@ -115,7 +115,9 @@ table.report thead td { padding: 0.5em; }
 table.report .odd td { background: #FAFAFA; }
 table.report th.title { background: #F1F1F1; padding: 0.5em; font-weight: bold; }
 table.report td.desc { border-right: 1px solid #ddd; padding: 0.5em 0.5em 0.5em 1.5em; }
-table.report td.certification_mark { border-right: 1px solid #ddd; width: 30px; padding: 0; text-overflow: ellipsis-word; }
+table.report td.certification_mark { border-right: 1px solid #ddd; width: 30px; padding: 0; text-align: center; }
+table.report td.certification_mark em { font-style: normal; opacity: 0.2; }
+table.report td.certification_mark:hover em, table.report td.certification_mark:focus em { opacity: 0.8; cursor: default; }
 table.report td.certification_mark span { display: none; }
 table.report td.certification_mark.normal { background: #FFFFB4; }
 table.report td.certification_mark.less { background: #E77A7A; }
