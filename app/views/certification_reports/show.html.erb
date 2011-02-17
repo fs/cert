@@ -9,7 +9,7 @@
     </td>
     <% @certification.all_experts.each do |expert| %>
       <td class="aligncenter">
-        <%= expert.full_name %>
+        <%= expert.full_name.html_safe.gsub(' ', '&nbsp;') %>
       </td>
     <% end %>
   </tr>
@@ -18,7 +18,7 @@
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:tbody, skill_type) do %>
       <tr>
-        <th colspan="<%= @certification.all_experts.size + 1 %>">
+        <th colspan="<%= @certification.all_experts.size + 1 %>" class="title">
           <%= skill_type.name %>
         </th>
       </tr>
@@ -34,12 +34,12 @@
               <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
 
               <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
-                <%= mark %>:
-                <%= mark.comment %>
+                <!-- <%= mark %>: -->
+                <span><%= mark.comment %></span>
               <% end %>
 
             <% else %>
-              <td class="mark none">
+              <td class="certification_mark none">
                 <span>No mark</span>
               </td>
             <% end %>

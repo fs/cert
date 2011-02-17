@@ -110,11 +110,13 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .title .form_skill .inputs li.text { width: 316px; }
 
 table.report .aligncenter { text-align: center; }
-table.report thead td { padding: 5px; }
+table.report thead td { padding: 0.5em; }
 table.report .odd td { background: #FAFAFA; }
-table.report td.desc { border-right: 1px solid #ddd; padding: 5px; }
-table.report td.mark { border-right: 1px solid #ddd; overflow: hidden; width: 30px; padding: 0; text-overflow: ellipsis-word; }
-table.report td.mark span { display: none; }
-table.report td.mark.normal { background: #ccc; }
-table.report td.mark.less { background: #E77A7A; }
-table.report td.mark.higher { background: #93B680; }
+table.report th.title { background: #F1F1F1; padding: 0.5em; font-weight: bold; }
+table.report td.desc { border-right: 1px solid #ddd; padding: 0.5em; }
+table.report td.certification_mark { border-right: 1px solid #ddd; width: 30px; padding: 0; text-overflow: ellipsis-word; }
+table.report td.certification_mark span { display: none; }
+table.report td.certification_mark.normal { background: #CCC; }
+table.report td.certification_mark.less { background: #E77A7A; }
+table.report td.certification_mark.higher { background: #93B680; }
+table.report td.certification_mark.none { background: #FFF; }
