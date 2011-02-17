@@ -18,9 +18,9 @@
 
       <ul class="skill_types_list">
         <% (@skills_by_skill_type[skill_type.id] || []).each do |skill| %>
-          <%= content_tag_for(:li, skill, :class => cycle ('odd', 'even')) do %>
+          <%= content_tag_for(:li, skill, :class => cycle('odd', 'even')) do %>
             <div class="skill_desc"><%= skill.description %></div>
-            
+
             <%= div_for(skill, :form) do %>
 
               <%= semantic_form_for([@user, @certification, @certification_marks[skill.id]], :remote => true) do |form| %>
