@@ -38,7 +38,7 @@ Feature: Listing certification marks
     When I am on the user: "chris"'s certification: "chris at junior"'s certification marks page
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
-    And the "Comment" field within "#skill_type_1 #skill_1" should contain "Can't talk at all"
+    And the "certification_mark_comment" field within "#skill_type_1 #skill_1" should contain "Can't talk at all"
     And the "less" checkbox within "#skill_type_1 #skill_1" should be checked
     And should see "Initiative" within "#skill_type_2"
     And should see "Should be proactive" within "#skill_type_2 #skill_2"

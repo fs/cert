@@ -12,7 +12,7 @@ Feature: Create skill
   Scenario Outline: Admin or HR creates new skill for junior developer
     Given I have "<role>" role
     And I am on the skill_type's skills page
-    When I fill in "Description" with "Should be able to listen" within "div#position_1"
+    When I fill in "skill_description" with "Should be able to listen" within "div#position_1"
     And I press "Create Skill" within "div#position_1"
     Then 1 skills should exist with description: "Should be able to listen", position: position "junior", skill_type: skill_type "communication"
 
@@ -24,7 +24,7 @@ Feature: Create skill
   Scenario Outline: Admin or HR create new skill for junior developer without description
     Given I have "<role>" role
     And I am on the skill_type's skills page
-    When I fill in "Description" with "" within "div#position_1"
+    When I fill in "skill_description" with "" within "div#position_1"
     And I press "Create Skill" within "div#position_1"
     Then I should be on the skill_type's skills page
     And I should see "can't be blank" error for "skill_description"
