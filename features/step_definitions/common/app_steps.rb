@@ -8,3 +8,9 @@ end
 Then /^I should see "([^"]*)" error for "([^"]*)"$/ do |error_message, id|
   Then %Q{I should see "#{error_message}" within "li##{id}_input p.inline-errors"}
 end
+
+Then /^the "([^"]*)" field(?: within "([^"]*)")? should exists$/ do |field, selector|
+  with_scope(selector) do
+    find_field(field).should be_present
+  end
+end

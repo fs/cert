@@ -1,0 +1,9 @@
+<%= semantic_form_for([@user, @certification, resource], :remote => true) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :skill %>
+    <%= form.input :mark, :as => :radio, :collection => CertificationMark::MARKS, :label => false %>
+    <%= form.input :comment, :label => false %>
+  <% end %>
+
+  <%= form.buttons %>
+<% end %>

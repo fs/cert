@@ -1,30 +1,59 @@
 <% title %Q{Certification report for #{@certification}} %>
 
-<ul>
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $('.certification_mark span').tipsy({fade: true, gravity: 's'});
+    });
+  </script>
+<% end %>
+
+<table class="report">
+  <thead>
+  <tr>
+    <td>
+
+    </td>
+
+    <% @certification.all_experts.each do |expert| %>
+      <td class="aligncenter">
+        <strong><%= expert.full_name.html_safe.gsub(' ', '&nbsp;') %></strong>
+      </td>
+    <% end %>
+
+  </tr>
+  </thead>
+
   <% SkillType.by_certification(@certification).each do |skill_type| %>
-    <%= content_tag_for(:li, skill_type) do %>
-      <h2><%= skill_type.name %></h2>
-      <ul>
-        <% (@skills[skill_type.id]  || []).each do |skill| %>
-          <%= content_tag_for(:li, skill) do %>
-            <h3><%= skill.description %></h3>
 
-            <% if @certification_marks_by_skills[skill.id] %>
-              <ul>
-                <% @certification_marks_by_skills[skill.id].each do |mark| %>
-                  <%= content_tag_for(:li, mark) do %>
-                    <strong><%= mark.user.full_name %></strong>: <%= mark %> <%= mark.comment %>
-                  <% end %>
-                <% end %>
-              </ul>
+    <%= content_tag_for(:tbody, skill_type) do %>
+      <tr>
+        <th colspan="<%= @certification.all_experts.size + 1 %>" class="title">
+          <%= skill_type.name %>
+        </th>
+      </tr>
+
+      <% (@skills[skill_type.id] || []).each do |skill| %>
+        <%= content_tag_for(:tr, skill, :class => cycle('odd', 'even')) do %>
+          <td class="desc">
+            <%= skill.description %>
+          </td>
+
+          <% @certification.all_experts.each do |expert| %>
+            <% if @certification_marks_by_skills[skill.id].present? && @certification_marks_by_skills[skill.id][expert.id].present? %>
+
+              <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
+
+              <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
+                <%= certification_mark_with_tooltip(mark) %>
+              <% end %>
             <% else %>
-              No one has rated this skill
+              <td class="certification_mark none">
+              </td>
             <% end %>
-
           <% end %>
         <% end %>
-      </ul>
+      <% end %>
     <% end %>
   <% end %>
-</ul>
-
+</table>

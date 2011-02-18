@@ -15,4 +15,8 @@ class Certification < ActiveRecord::Base
   def to_s
     "#{user.full_name}@#{position.name}"
   end
+
+  def all_experts
+    @all_experts ||= experts.to_a << user
+  end
 end

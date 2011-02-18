@@ -35,7 +35,7 @@ Feature: Listing skills
     When I follow "Communication"
     Then I should see "Edit" within "#position_1"
     And I should see "Destroy" within "#position_1"
-    And I should see "New skill" within "#position_1"
+    And the "skill_description" field within "#position_1" should exists
 
     Examples:
       | role |
@@ -48,7 +48,7 @@ Feature: Listing skills
     When I follow "Communication"
     Then I should not see "Edit" within "#position_1"
     And I should not see "Destroy" within "#position_1"
-    And I should not see "New skill" within "#position_1"
+    And I should not see "Create Skill" within "#position_1"
 
     Examples:
       | role |
