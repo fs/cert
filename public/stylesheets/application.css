@@ -91,9 +91,14 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .skill_types_list { border-top: 1px solid #ddd; }
 .skill_types .skill { overflow: hidden; border-bottom: 1px solid #ddd; padding: 0.8em 0.5em; }
 .skill_types .skill.odd { background: #FAFAFA; }
-.skill_types .skill.normal, .skill_types .skill.less, .skill_types .skill.higher { background: #EBEBEB; }
+// .skill_types .skill.normal, .skill_types .skill.less, .skill_types .skill.higher { background: #EBEBEB; }
 .skill_types .skill:hover, .skill_types .skill:focus, .skill_types .skill:active { background: #FFFFED; }
 .skill_types .skill_desc { float: left; margin: 12px 0; width: 350px; }
+.skill_types .skill .skill_desc strong { float: left; font-weight: normal; width: 326px; }
+.skill_types .skill_desc .mrk-blln { width: 16px; height: 16px; float: left; margin: 0 6px 0 0; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; }
+.skill_types .skill.normal .skill_desc .mrk-blln { background: #ccf39b; border: 1px solid #B4D689; }
+.skill_types .skill.less .skill_desc .mrk-blln { background: #d13333; border: 1px solid #B82D2D; }
+.skill_types .skill.higher .skill_desc .mrk-blln { background: #8dc640; border: 1px solid #7CAF38; }
 .skill_types .form_skill { float: right; }
 .skill_types .form_skill .inputs { float: left; margin: 0; padding: 0; background: transparent; border: 0; }
 .skill_types .form_skill .buttons { display: none; }
