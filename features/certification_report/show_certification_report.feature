@@ -42,17 +42,11 @@ Feature: Show certification report
 
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
-
-    And should see "less" within "#skill_type_1 #skill_1 #certification_mark_1"
-    And should see "Can't talk at all" within "#skill_type_1 #skill_1 #certification_mark_1"
-
-    And should see "less" within "#skill_type_1 #skill_1 #certification_mark_2"
-    And should see "Just silent man" within "#skill_type_1 #skill_1 #certification_mark_2"
-
+    And I should see "less" mark with "Can't talk at all" comment within "#skill_type_1 #skill_1 #certification_mark_1"
+    And I should see "less" mark with "Just silent man" comment within "#skill_type_1 #skill_1 #certification_mark_2"
     And should see "Initiative" within "#skill_type_2"
     And should see "Should be proactive" within "#skill_type_2 #skill_2"
-
-    And should see "normal" within "#skill_type_2 #skill_2 #certification_mark_3"
+    And I should see "normal" mark within "#skill_type_2 #skill_2 #certification_mark_3"
 
       Examples:
         | role  |
@@ -71,24 +65,16 @@ Feature: Show certification report
       | certification: "me at junior" | 1  | skill: "talk"      | user: "chris" | 0    | Can't talk at all |
       | certification: "me at junior" | 2  | skill: "talk"      | user: "joe"   | 0    | Just silent man   |
       | certification: "me at junior" | 3  | skill: "proactive" | I             | 1    |                   |
-    
+
     And I have "User" role
     When I am on the user: "me"'s certification: "me at junior"'s certification reports page
-
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
-
-    And should see "less" within "#skill_type_1 #skill_1 #certification_mark_1"
-    And should see "Can't talk at all" within "#skill_type_1 #skill_1 #certification_mark_1"
-
-    And should see "less" within "#skill_type_1 #skill_1 #certification_mark_2"
-    And should see "Just silent man" within "#skill_type_1 #skill_1 #certification_mark_2"
-
+    And I should see "less" mark with "Can't talk at all" comment within "#skill_type_1 #skill_1 #certification_mark_1"
+    And I should see "less" mark with "Just silent man" comment within "#skill_type_1 #skill_1 #certification_mark_2"
     And should see "Initiative" within "#skill_type_2"
     And should see "Should be proactive" within "#skill_type_2 #skill_2"
-
-    And should see "normal" within "#skill_type_2 #skill_2 #certification_mark_3"
-
+    And I should see "normal" mark within "#skill_type_2 #skill_2 #certification_mark_3"
 
   Scenario: User should not be able to view report for other users certifications
     When I go to the user: "chris"'s certification: "chris at junior"'s certification reports page
