@@ -1,5 +1,12 @@
 <% title %Q{Certification report for #{@certification}} %>
 
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $('.certification_mark a').tipsy({fade: true, gravity: 'n'});
+    });
+  </script>
+<% end %>
 
 <table class="report">
   <thead>
@@ -13,7 +20,7 @@
         <strong><%= expert.full_name.html_safe.gsub(' ', '&nbsp;') %></strong>
       </td>
     <% end %>
-    
+
   </tr>
   </thead>
 
@@ -38,8 +45,7 @@
               <% mark = @certification_marks_by_skills[skill.id][expert.id] %>
 
               <%= content_tag_for(:td, mark, :class => mark.to_s) do %>
-                <em><%= mark %></em>
-                <span><%= mark.comment %></span>
+                <%= certification_mark_with_tooltip(mark) %>
               <% end %>
             <% else %>
               <td class="certification_mark none">
