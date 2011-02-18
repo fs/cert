@@ -91,11 +91,9 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .skill_types_list { border-top: 1px solid #ddd; }
 .skill_types .skill { overflow: hidden; border-bottom: 1px solid #ddd; padding: 0.8em 0.5em; }
 .skill_types .skill.odd { background: #FAFAFA; }
-.skill_types .skill.normal { background: #ccf39b; }
-.skill_types .skill.less { background: #d13333; }
-.skill_types .skill.higher { background: #8dc640; }
+.skill_types .skill.normal, .skill_types .skill.less, .skill_types .skill.higher { background: #EBEBEB; }
 .skill_types .skill:hover, .skill_types .skill:focus, .skill_types .skill:active { background: #FFFFED; }
-.skill_types .skill_desc { float: left; margin: 8px 0; }
+.skill_types .skill_desc { float: left; margin: 12px 0; width: 350px; }
 .skill_types .form_skill { float: right; }
 .skill_types .form_skill .inputs { float: left; margin: 0; padding: 0; background: transparent; border: 0; }
 .skill_types .form_skill .buttons { display: none; }
@@ -104,10 +102,13 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .form_skill .inputs li.radio { float: right; width: auto; }
 .skill_types .form_skill .inputs li.radio fieldset { background: transparent; }
 .skill_types .form_skill .inputs li.radio fieldset ol { margin: 0; }
-.skill_types .form_skill .inputs li.radio li { margin: 0 4px; }
+.skill_types .form_skill .inputs li.radio li { margin: 0 4px; padding: 4px; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; }
+.skill_types .form_skill .inputs li.radio li.normal { background: #ccf39b; }
+.skill_types .form_skill .inputs li.radio li.less { background: #d13333; }
+.skill_types .form_skill .inputs li.radio li.higher { background: #8dc640; }
 .skill_types .form_skill .inputs li.radio input { display: block; margin: 0 auto 3px; top: 0; }
 .skill_types .form_skill .inputs li.text { width: auto; clear: none; float: left; }
-.skill_types .form_skill .inputs li #certification_mark_comment { width: 300px; height: 21px; margin: 0; line-height: 22px; }
+.skill_types .form_skill .inputs li #certification_mark_comment { width: 300px; height: 29px; margin: 0; line-height: 14px; }
 .skill_types .form_skill .inputs li#certification_mark_comment_input .inline-errors { text-align: center; margin: 0.5em 0 0; }
 .skill_types .form_skill .inputs li#certification_mark_skill_id_input { display: none; }
 .skill_types .title .skill_desc { line-height: 1.4; }
