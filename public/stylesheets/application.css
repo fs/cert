@@ -106,6 +106,7 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .form_skill .inputs li.text { width: auto; clear: none; float: left; }
 .skill_types .form_skill .inputs li #certification_mark_comment { width: 300px; height: 21px; margin: 0; line-height: 22px; }
 .skill_types .form_skill .inputs li#certification_mark_comment_input .inline-errors { text-align: center; margin: 0.5em 0 0; }
+.skill_types .form_skill .inputs li#certification_mark_skill_id_input { display: none; }
 .skill_types .title .skill_desc { line-height: 1.4; }
 .skill_types .title .form_skill .inputs li { list-style: none; }
 .skill_types .title .form_skill .inputs li.text { width: 316px; }
@@ -117,7 +118,7 @@ table.report th.title { background: #F1F1F1; padding: 0.5em; font-weight: bold; 
 table.report td.desc { border-right: 1px solid #ddd; padding: 0.5em 0.5em 0.5em 1.5em; }
 table.report td.certification_mark { border-right: 1px solid #ddd; width: 30px; padding: 0; text-align: center; }
 table.report td.certification_mark span { cursor: default; display: block; width: 100%; height: 100%; padding: 0.5em 0; }
-table.report td.certification_mark span strong { font-weight: normal; opacity: 0.2; border-bottom: 1px dashed #000; }
+table.report td.certification_mark span strong { cursor: default; font-weight: normal; opacity: 0.2; border-bottom: 1px dashed #000; }
 table.report td.certification_mark:hover span strong { opacity: 0.8; }
 table.report td.certification_mark.normal { background: #ccf39b; }
 table.report td.certification_mark.less { background: #d13333; }
