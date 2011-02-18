@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def certification_mark_with_tooltip(mark)
     if mark.comment.present?
-      link_to(mark.to_s, '#', :title => mark.comment)
+      content_tag(:span, mark.to_s, :title => mark.comment)
     else
       mark
     end
