@@ -5,12 +5,11 @@ class Certification < ActiveRecord::Base
   belongs_to :position
 
   has_and_belongs_to_many :experts,
-      :class_name => 'User',
-      :join_table => 'certifications_experts'
+                          :class_name => 'User',
+                          :join_table => 'certifications_experts'
 
-  has_many :skill_types
-
-  has_many :certification_marks
+  has_many :certification_marks,
+           :dependent => :destroy
 
   def to_s
     "#{user.full_name}@#{position.name}"
