@@ -91,6 +91,9 @@ form abbr { color:red; font-size:1.2em; margin-left:.2em; }
 .skill_types .skill_types_list { border-top: 1px solid #ddd; }
 .skill_types .skill { overflow: hidden; border-bottom: 1px solid #ddd; padding: 0.8em 0.5em; }
 .skill_types .skill.odd { background: #FAFAFA; }
+.skill_types .skill.normal { background: #ccf39b; }
+.skill_types .skill.less { background: #d13333; }
+.skill_types .skill.higher { background: #8dc640; }
 .skill_types .skill:hover, .skill_types .skill:focus, .skill_types .skill:active { background: #FFFFED; }
 .skill_types .skill_desc { float: left; margin: 8px 0; }
 .skill_types .form_skill { float: right; }
