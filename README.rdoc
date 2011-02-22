@@ -1,3 +1,7 @@
+Version 0.3.1
+* Bug: duplicate certifications on the certifications page
+* Feature: delete certifications with dependencies 
+
 Version 0.3
  * Perfomance optimisation
  * Design
