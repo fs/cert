@@ -9,6 +9,6 @@ class CertificationsController < ApplicationController
   private
 
   def collection
-    @certifications ||= end_of_association_chain.accessible_by(current_ability).includes(:position, :user).group('certifications.id').paginate(:page => params[:page])
+    @certifications ||= end_of_association_chain.accessible_by(current_ability).includes(:position, :user).uniq
   end
 end
