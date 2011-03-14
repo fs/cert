@@ -1,2 +1,8 @@
 $("#<%= dom_id(resource.skill, :form) %>").html("<%= escape_javascript(render('form')) %>");
-$("#<%= dom_id(resource.skill, :form) %>").effect("pulsate", { times: 1 }, 1000);
+$("#<%= dom_id(resource.skill) %>").removeClass("higher less normal")
+
+<% if resource.valid? %>
+  $("#<%= dom_id(resource.skill) %>").addClass("<%= resource.to_s %>")
+<% else %>
+  $("#<%= dom_id(resource.skill, :form) %>").effect("pulsate", { times: 1 }, 1000);
+<% end %>
