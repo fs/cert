@@ -1,4 +1,4 @@
-<%= semantic_form_for([@user, @certification, resource], :remote => true) do |form| %>
+<%= semantic_form_for([@user, @certification, resource], :remote => true, :namespace => dom_id(resource.skill)) do |form| %>
   <%= form.inputs do %>
     <%= form.input :skill_id, :as => :hidden %>
     <%= form.input :mark, :as => :radio, :collection => CertificationMark::MARKS, :label => false %>
