@@ -1,5 +1,6 @@
 class Certification < ActiveRecord::Base
   validates :user, :position, :presence => true
+  validates :result, :presence => { :if => :result_required? }
 
   belongs_to :user
   belongs_to :position
@@ -17,5 +18,11 @@ class Certification < ActiveRecord::Base
 
   def all_experts
     @all_experts ||= experts.to_a << user
+  end
+
+  private
+
+  def result_required?
+    finished_at.present?
   end
 end
