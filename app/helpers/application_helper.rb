@@ -15,4 +15,12 @@ module ApplicationHelper
       mark
     end
   end
+
+  def certification_position_with_tooltip(certification)
+    if certification.finished?
+      content_tag(:span, certification.position.name, :class => 'finished', :title => certification.result)
+    else
+      certification.position.name
+    end
+  end
 end

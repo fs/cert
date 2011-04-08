@@ -1,13 +1,27 @@
 <% title 'Listing certifications' %>
 
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(function() {
+      $('.certification span.finished').tipsy({fade: true, gravity: 's'});
+    });
+  </script>
+<% end %>
+
 <%= table_for(@certifications) do |t| %>
   <%= t.data :actions => [:edit, :destroy] do %>
     <% t.cell(:user) %>
-    <% t.cell(:position) %>
-    <% t.cell(:created_at) %>
+    
+    <%= t.cell(:position) do |certification| %>
+      <% certification_position_with_tooltip(certification) %>
+    <% end %>
+
+    <%= t.cell(:created_at) do |certification| %>
+      <% certification.created_at.to_s(:short) %>
+    <% end %>
 
     <%= t.cell(:mark, :heading => '', :cell_html => {:class => 'actions mark_link'}) do |certification| %>
-      <% link_to('Mark',  [certification.user, certification, :certification_marks]) if can?(:manage, certification.certification_marks.build) %>
+      <% link_to('Mark', [certification.user, certification, :certification_marks]) if can?(:manage, certification.certification_marks.build) %>
     <% end %>
 
     <%= t.cell(:report, :heading => '', :cell_html => {:class => 'actions show_link'}) do |certification| %>

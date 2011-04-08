@@ -12,12 +12,18 @@ class Certification < ActiveRecord::Base
   has_many :certification_marks,
            :dependent => :destroy
 
+  default_scope order('created_at DESC')
+
   def to_s
     "#{user.full_name}@#{position.name}"
   end
 
   def all_experts
     @all_experts ||= experts.to_a << user
+  end
+
+  def finished?
+    finished_at.present?
   end
 
   private
