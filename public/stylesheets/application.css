@@ -132,3 +132,5 @@ table.report td.certification_mark.less { background: #d13333; }
 table.report td.certification_mark.higher { background: #8dc640; }
 table.report td.certification_mark.none { background: #FFF; }
 table.report td.certification_mark.none span { display: none; }
+
+table#certifications td span.finished { cursor: default; font-weight: normal; opacity: 0.2; border-bottom: 1px dashed #000; }

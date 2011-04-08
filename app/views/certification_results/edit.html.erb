@@ -1,0 +1,13 @@
+<% title %Q{Finishing #{resource} certification} %>
+
+<%= semantic_form_for(resource, :url => certification_results_path(resource)) do |form| %>
+  <%= form.inputs do %>
+    <%= form.input :result %>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button 'Yes, finish this certification' %>
+  <% end %>
+  or <%= link_to 'cancel', certifications_path %>
+<% end %>
+

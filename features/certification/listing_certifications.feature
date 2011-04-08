@@ -19,11 +19,10 @@ Feature: Listing certifications
     And I should see "Chris" within "#certification_1"
     And I should see "Senior developer" within "#certification_2"
     And I should see "John" within "#certification_2"
-
-  Examples:
-    | role |
-    | Admin |
-    | HR |
+      Examples:
+        | role |
+        | Admin |
+        | HR |
 
   Scenario Outline: Admin or HR list certifications for specific user
     Given I have "<role>" role
@@ -32,12 +31,10 @@ Feature: Listing certifications
     And I should see "Chris" within "#certifications"
     And I should not see "Senior developer" within "#certifications"
     And I should not see "John" within "#certifications"
-
-
-  Examples:
-    | role |
-    | Admin |
-    | HR |
+      Examples:
+        | role |
+        | Admin |
+        | HR |
 
   Scenario Outline: Admin or HR should see links for managing certifications
     Given I have "<role>" role
@@ -46,11 +43,10 @@ Feature: Listing certifications
     And I should see "Destroy"
     And I should see "Mark"
     And I should see "Report"
-
-  Examples:
-    | role |
-    | Admin |
-    | HR |
+      Examples:
+        | role |
+        | Admin |
+        | HR |
 
   Scenario: Expert should see certifications where he participate as expert
     Given I have "Expert" role
@@ -59,7 +55,7 @@ Feature: Listing certifications
     Then I should see "Chris" within "#certification_1"
     And I should see "Junior developer" within "#certification_1"
 
- Scenario: User should not see certifications where he participate as expert without expert role
+Scenario: User should not see certifications where he participate as expert without expert role
     Given I expert for the certification "chris at junior"
     When I go to the certifications page
     Then I should not see "Chris"
@@ -97,4 +93,17 @@ Feature: Listing certifications
     When I go to the certifications page
     Then I should see "Report"
     And I should see "Mark"
+
+  Scenario: Regular user should not see link to mark for finished certifications
+    Given I have "User" role
+    And a finished certification exists with user: I, position: position "junior"
+    When I go to the certifications page
+    Then I should not see "Mark"
+
+  Scenario: Expert should not see link to mark for finished certifications where he participate as expert
+    Given I have "Expert" role
+    And a finished certification: "finished certification" exists with id: 3
+    And I expert for the certification "finished certification"
+    When I go to the certifications page
+    Then I should not see "Mark" within "#certification_3"
 

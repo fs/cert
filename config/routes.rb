@@ -15,7 +15,12 @@ Cert::Application.routes.draw do
     end
   end
 
-  resources :certifications, :except => [:show]
+  resources :certifications, :except => [:show] do
+    resource :certification_results,
+             :only => [:edit, :update],
+             :as =>'results',
+             :path => 'results'
+  end
 
   resources :positions, :except => [:show]
 
