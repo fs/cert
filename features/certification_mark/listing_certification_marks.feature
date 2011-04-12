@@ -24,7 +24,7 @@ Feature: Listing certification marks
     And I expert for the certification "chris at junior"
     When I am on the certifications page
     And follow "Mark"
-    Then I should be on the user: "chris"'s certification: "chris at junior"'s certification marks page
+    Then I should be on the certification: "chris at junior"'s marks page
 
   Scenario: Expert should see certifications where he participate as expert
     Given I have "Expert" role
@@ -35,7 +35,7 @@ Feature: Listing certification marks
       | certification: "chris at junior" | skill: "talk"      | I    | 0    | Can't talk at all |
       | certification: "chris at junior" | skill: "proactive" | I    | 1    |                   |
     And I expert for the certification "chris at junior"
-    When I am on the user: "chris"'s certification: "chris at junior"'s certification marks page
+    When I am on the certification: "chris at junior"'s marks page
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
     And the "certification_mark[comment]" field within "#skill_type_1 #skill_1" should contain "Can't talk at all"
@@ -46,7 +46,7 @@ Feature: Listing certification marks
 
   Scenario: User should see his own certification marks
     Given a certification: "me at junior" exists with user: I, position: position "junior"
-    When I go to the user: "me"'s certification: "me at junior"'s certification marks page
+    When I go to the certification: "me at junior"'s marks page
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
     And should see "Initiative" within "#skill_type_2"
@@ -57,21 +57,21 @@ Feature: Listing certification marks
     Given a confirmed user: "chris" exists with full_name: "Chris"
     And a certification: "chris at junior" exists with user: user "chris", position: position "junior"
     And I expert for the certification "chris at junior"
-    When I go to the user: "chris"'s certification: "chris at junior"'s certification marks page
+    When I go to the certification: "chris at junior"'s marks page
     Then access should be denied via authorization rule
 
   @wip
   Scenario: Regular user should not be able list certification marks for other users
     Given a confirmed user: "chris" exists with full_name: "Chris"
     And a certification: "chris at junior" exists with user: user "chris", position: position "junior"
-    When I go to the user: "chris"'s certification: "chris at junior"'s certification marks page
+    When I go to the certification: "chris at junior"'s marks page
     Then access should be denied via authorization rule
 
   Scenario: Visitor should not be able list certification marks
     Given I am logged out
     And a confirmed user: "chris" exists with full_name: "Chris"
     And a certification: "chris at junior" exists with user: user "chris", position: position "junior"
-    When I go to the user: "chris"'s certification: "chris at junior"'s certification marks page
+    When I go to the certification: "chris at junior"'s marks page
     Then access should be denied via authentication rule
 
 

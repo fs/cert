@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217114557) do
+ActiveRecord::Schema.define(:version => 20110315164456) do
 
   create_table "certification_marks", :force => true do |t|
     t.integer  "certification_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20110217114557) do
     t.datetime "finished_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "result"
   end
 
   add_index "certifications", ["position_id"], :name => "index_certifications_on_position_id"

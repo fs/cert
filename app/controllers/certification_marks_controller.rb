@@ -3,7 +3,7 @@ class CertificationMarksController < ApplicationController
   authorize_resource
 
   inherit_resources
-  belongs_to :user, :certification
+  belongs_to :certification
   actions :all, :except => [:show]
   respond_to :html, :js
 

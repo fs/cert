@@ -1,15 +1,11 @@
 class CertificationReportsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :load_user, :load_certification, :load_skills, :authorize_certification_report!
+  before_filter :load_certification, :load_skills, :authorize_certification_report!
 
   def show
   end
 
   private
-
-  def load_user
-    @user ||= User.find(params[:user_id])
-  end
 
   def load_certification
     @certification ||= Certification.find(params[:certification_id], :include => :position)

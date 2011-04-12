@@ -9,13 +9,14 @@ Cert::Application.routes.draw do
   end
 
   resources :users, :except => [:show] do
-    resources :certifications, :except => [:show] do
-      resources :certification_marks, :except => [:show]
-      resource :certification_reports, :only => [:show]
-    end
+    resources :certifications, :except => [:show]
   end
 
-  resources :certifications, :except => [:show]
+  resources :certifications, :except => [:show] do
+    resources :certification_marks, :except => [:show], :as =>'marks', :path => 'marks'
+    resource :certification_reports, :only => [:show], :as =>'reports', :path => 'reports'
+    resource :certification_results, :only => [:edit, :update], :as =>'results', :path => 'results'
+  end
 
   resources :positions, :except => [:show]
 

@@ -8,6 +8,12 @@
   </script>
 <% end %>
 
+<% if can?(:manage, @certification) %>
+  <h1 align="center">
+    <%= link_to('Finish certification', [:edit, @certification, :results]) %>
+  </h1>
+<% end %>
+
 <table class="report">
   <thead>
   <tr>
