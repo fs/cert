@@ -1,3 +1,7 @@
+Version 0.5
+* Feature: Added ability to finish certification with result note
+* Feature: Simplify url
+
 Version 0.4
 * Bug: Invalid labels name for radio on marks page
 * Feature: Highlight marked skills with color on the marks page
