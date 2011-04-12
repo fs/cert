@@ -38,7 +38,7 @@ Feature: Show certification report
       | certification: "chris at junior" | 3  | skill: "proactive" | I           | 1    |                   |
 
     And I have "<role>" role
-    When I am on the user: "chris"'s certification: "chris at junior"'s certification reports page
+    When I am on the certification: "chris at junior"'s reports page
 
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
@@ -67,7 +67,7 @@ Feature: Show certification report
       | certification: "me at junior" | 3  | skill: "proactive" | I             | 1    |                   |
 
     And I have "User" role
-    When I am on the user: "me"'s certification: "me at junior"'s certification reports page
+    When I am on the certification: "me at junior"'s reports page
     Then I should see "Communication" within "#skill_type_1"
     And should see "Should be able to talk" within "#skill_type_1 #skill_1"
     And I should see "less" mark with "Can't talk at all" comment within "#skill_type_1 #skill_1 #certification_mark_1"
@@ -77,10 +77,10 @@ Feature: Show certification report
     And I should see "normal" mark within "#skill_type_2 #skill_2 #certification_mark_3"
 
   Scenario: User should not be able to view report for other users certifications
-    When I go to the user: "chris"'s certification: "chris at junior"'s certification reports page
+    When I go to the certification: "chris at junior"'s reports page
     Then access should be denied via authorization rule
 
   Scenario: Visitor should not be able to view certification reports
     Given I am logged out
-    When I go to the user: "chris"'s certification's certification reports page
+    When I go to the certification's reports page
     Then access should be denied via authentication rule

@@ -9,12 +9,12 @@ Feature: Finish certification
 
   Scenario: HR should be able to see finish link on the certification report
     Given I have "HR" role
-    When I am on the user's certification's certification reports page
+    When I am on the certification's reports page
     Then I should see "Finish"
 
   Scenario Outline: Regular user should not be able to see finish link on the certification report
     Given I have "<role>" role
-    When I am on the user's certification's certification reports page
+    When I am on the certification's reports page
     Then I should not see "Finish"
     Examples:
       | role   |

@@ -22,13 +22,13 @@ Feature: Create certification mark
     And I expert for the certification "chris at junior"
 
   Scenario: Create new mark for certification
-    Given I am on the user: "chris"'s certification's certification marks page
+    Given I am on the certification's  marks page
     When I choose "normal" within "#skill_1"
     And press "Create Certification mark" within "#skill_1"
     Then 1 certification marks should exist with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1
 
   Scenario Outline: Create un normal mark for certification with comment
-    Given I am on the user: "chris"'s certification's certification marks page
+    Given I am on the certification's marks page
     When I choose "<mark_label>" within "#skill_1"
     And I fill in "certification_mark[comment]" with "Some extra skill" within "#skill_1"
     And press "Create Certification mark" within "#skill_1"
@@ -41,7 +41,7 @@ Feature: Create certification mark
 
   Scenario: Try to create new mark if other one exist for given certification and skill
     Given a certification mark exists with certification: certification "chris at junior", user: I, skill: skill "talk", mark: 1
-    And I am on the user: "chris"'s certification's certification marks page
+    And I am on the certification's marks page
     When choose "normal" within "#skill_1"
     And I fill in "certification_mark[comment]" with "Updated comment" within "#skill_1"
     And press "certification_mark_submit" within "#skill_1"
