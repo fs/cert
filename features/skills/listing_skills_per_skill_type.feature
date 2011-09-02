@@ -1,4 +1,4 @@
-Feature: Listing skills
+Feature: Listing skills per skill type
   In order to get familiar with existing skills
   As an authenticated user
   I want to list skills per skill type
