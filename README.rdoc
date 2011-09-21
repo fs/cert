@@ -1,3 +1,6 @@
+Version 0.6
+* Feature: Render skill type's description on skills and marks page
+
 Version 0.5
 * Feature: Added ability to finish certification with result note
 * Feature: Simplify url
