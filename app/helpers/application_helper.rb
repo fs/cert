@@ -23,4 +23,12 @@ module ApplicationHelper
       certification.position.name
     end
   end
+  
+  def skill_type_with_tooltip(skill_type)
+    if skill_type.comment.present?
+      content_tag(:span, content_tag(:strong, skill_type), :title => skill_type.comment_to_html)
+    else
+      skill_type
+    end    
+  end
 end
