@@ -1,7 +1,7 @@
 defaults: &defaults
   token: 317eba0835b9f1229c3eecac1855d77d65f2f8a2ee751d816683e05a8ea2167321958a1bb5e95102284af3b61262e390b195dee85610b672bcc1492fb9e2f816
   app_name: Skills
-  noreply: noreply@fs-cert.heroku.com
+  noreply: noreply@skills.flatsoft.com
   host: localhost:3000
   identities:
     twitter:
@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *defaults
-  host: fs-cert.heroku.com
+  host: skills.flatsoft.com
