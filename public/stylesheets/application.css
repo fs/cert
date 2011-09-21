@@ -133,4 +133,4 @@ table.report td.certification_mark.higher { background: #8dc640; }
 table.report td.certification_mark.none { background: #FFF; }
 table.report td.certification_mark.none span { display: none; }
 
-table#certifications td span.finished { cursor: default; font-weight: bold; border-bottom: 1px dashed #000; }
+table#certifications td span.finished, ul.skill_types li.skill_type span { cursor: default; font-weight: bold; border-bottom: 1px dashed #000; }
