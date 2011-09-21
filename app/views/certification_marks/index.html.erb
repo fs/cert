@@ -6,6 +6,8 @@
       $('.formtastic.certification_mark input, .formtastic.certification_mark textarea').live('change', function() {
         $(this).closest('form').submit();
       });
+      
+      $('.skill_type span').tipsy({fade: true, gravity: 's', html: true});
     });
   </script>
 <% end %>
@@ -13,7 +15,7 @@
 <ul class="skill_types">
   <% SkillType.by_certification(@certification).each do |skill_type| %>
     <%= content_tag_for(:li, skill_type) do %>
-      <h2><%= skill_type.name %></h2>
+      <h2><%= skill_type_with_tooltip(skill_type) %></h2>
 
       <ul class="skill_types_list">
         <% (@skills_by_skill_type[skill_type.id] || []).each do |skill| %>
