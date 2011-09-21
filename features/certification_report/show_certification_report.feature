@@ -35,7 +35,7 @@ Feature: Show certification report
       | certification                    | id | skill              | user        | mark | comment           |
       | certification: "chris at junior" | 1  | skill: "talk"      | I           | 0    | Can't talk at all |
       | certification: "chris at junior" | 2  | skill: "talk"      | user: "joe" | 0    | Just silent man   |
-      | certification: "chris at junior" | 3  | skill: "proactive" | I           | 1    |                   |
+      | certification: "chris at junior" | 3  | skill: "proactive" | I           | 1    | OK                |
 
     And I have "<role>" role
     When I am on the certification: "chris at junior"'s reports page
@@ -64,7 +64,7 @@ Feature: Show certification report
       | certification                 | id | skill              | user          | mark | comment           |
       | certification: "me at junior" | 1  | skill: "talk"      | user: "chris" | 0    | Can't talk at all |
       | certification: "me at junior" | 2  | skill: "talk"      | user: "joe"   | 0    | Just silent man   |
-      | certification: "me at junior" | 3  | skill: "proactive" | I             | 1    |                   |
+      | certification: "me at junior" | 3  | skill: "proactive" | I             | 1    | OK                |
 
     And I have "User" role
     When I am on the certification: "me at junior"'s reports page

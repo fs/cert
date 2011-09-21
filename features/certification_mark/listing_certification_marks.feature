@@ -33,7 +33,7 @@ Feature: Listing certification marks
     And the following certification marks exist
       | certification                    | skill              | user | mark | comment           |
       | certification: "chris at junior" | skill: "talk"      | I    | 0    | Can't talk at all |
-      | certification: "chris at junior" | skill: "proactive" | I    | 1    |                   |
+      | certification: "chris at junior" | skill: "proactive" | I    | 1    | Good              |
     And I expert for the certification "chris at junior"
     When I am on the certification: "chris at junior"'s marks page
     Then I should see "Communication" within "#skill_type_1"
